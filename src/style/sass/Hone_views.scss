@@ -259,7 +259,7 @@ html,body{
 	.CiMain{
 		box-shadow: 0 1px 6px #ddd;
 		width: 100%;
-		min-height: 500px;
+		min-height: 1000px;
 		background: #fff;
 		margin-top: 10px;
 		border-radius: 5px;
@@ -267,6 +267,14 @@ html,body{
 		.Ci_left{
 			flex:1;
 			padding: 10px;
+			.Ci_list{
+				width: 100%;
+				padding: 10px;
+			    .Ci_item{
+			    	min-height: 50px;
+			    	border-bottom: 1px dashed #ccc;
+			    }
+			}
 		}
 		.Ci_right{
 		    width: 279px;

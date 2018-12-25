@@ -1,7 +1,12 @@
 <template>
   <div id="Hv_ChildInd" class="Hv_ChildInd clearfix">
     <div class="CiMain">
-      <div class="Ci_left"></div>
+      <div class="Ci_left">
+        <ul class="Ci_list">
+           <li class="Ci_item" v-for="item in Hv_Datas">{{item}}</li>
+
+        </ul>
+      </div>
       <div class="Ci_right">
         <div class="Ci_right_card">
           <div class="name">勋</div>
@@ -32,7 +37,9 @@ import {
 export default {
   name: 'Hv_ChildInd',
   data() {
-    return {}
+    return {
+      Hv_Datas:10
+    }
   },
   methods: {
 

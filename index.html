@@ -11,20 +11,11 @@
   <body>
     <div id="app"></div>
     <script>
-        var wms = '';
+
         console.log(location.origin);
-        if(location.origin == 'http://localhost:8080'){
-           wms = 'http://tongbai.huihezn.com';
-        }else{
-           wms = location.origin;
-        }
+
         window.applicationConfig = {
            // WxPath:location.origin+'/#/', 
-           securityServer:'http://api.huihezn.com/securityApi',
-           currencyServer:'http://api.huihezn.com/currencyApi',
-           businessServer:'http://api.huihezn.com/businessApi',
-           wechatMpServer:wms +'/wxmp',
-           fileApi:'http://api.huihezn.com/fileApi'
         }
     </script>
   </body>
