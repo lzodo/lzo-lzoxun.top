@@ -1,0 +1,135 @@
+//按钮颜色
+
+@btn-default: #fff;
+@btn-hover-default: #e6e6e6;
+
+
+@btn-blue:#2290F1;
+
+@btn-green: #04be02;
+
+@btn-red: #ef4f4f;
+
+@btn-info: #5bc0de;
+
+@btn-warning: #ffb400;
+
+@btn-disabled: #DDDDDD;
+
+@color-write: #fff;
+
+@btn-link: #333;
+
+.@{css-prefix}btn{
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: normal;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  line-height: 1.5;
+  padding: 4px 15px;
+  font-size: 12px;
+  .border-radius;
+  .user-select;
+  position: relative;
+  color: #666;
+  background-color: #f4f4f4;
+  border-color: #d9d9d9;
+}
+
+//默认按钮
+.@{css-prefix}btn-default{
+  color: #444;
+  background-color: @btn-default;
+  border-color: darken(@btn-default, 6%);
+}
+
+
+
+//蓝色按钮
+.@{css-prefix}btn-primary{
+  color: @color-write;
+  background-color: @btn-blue;
+  border-color: @btn-blue;
+}
+
+//disabled按钮
+.@{css-prefix}btn-disabled{
+  color: @color-write;
+  background-color: @btn-disabled;
+  border-color: @btn-disabled;
+}
+
+//绿色按钮
+.@{css-prefix}btn-success{
+  color: @color-write;
+  background-color: @btn-green;
+  border-color: darken(@btn-green,6%);
+}
+
+
+//红色按钮
+.@{css-prefix}btn-danger{
+  color: @color-write;
+  background-color: @btn-red;
+  border-color: darken(@btn-red,6%);
+}
+
+
+//淡蓝按钮
+.@{css-prefix}btn-info{
+  color: @color-write;
+  background-color: @btn-info;
+  border-color: darken(@btn-info,6%);
+}
+
+
+
+//橙色按钮
+.@{css-prefix}btn-warning{
+  color: @color-write;
+  background-color: @btn-warning;
+  border-color: darken(@btn-warning,6%);
+}
+
+//链接按钮
+.@{css-prefix}btn-link{
+      border-color: transparent;
+      background-color: transparent;
+      color: @btn-link;
+}
+//大按钮
+.@{css-prefix}btn-lg{
+  padding: 5px 15px;
+  font-size: 14px;
+}
+//小按钮
+.@{css-prefix}btn-sm{
+  padding: 1px 8px;
+  font-size: 12px;
+}
+
+//大(块)按钮
+.@{css-prefix}btn-block{
+  display: block;
+  .wd(100%);
+  padding: 7px;
+  font-size: 18px;
+}
+
+//不可点
+.@{css-prefix}btn[disabled],
+fieldset[disabled] .@{css-prefix}btn{
+  cursor: not-allowed;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  background-color:#ccc;
+  border:0 none;
+}
+
+
+

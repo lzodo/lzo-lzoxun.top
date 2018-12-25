@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+<!--     <meta name="viewport" content="initial-scale=1.0, user-scalable=no"> 
+ -->    <meta name="viewport" content="user-scalable=yes">
+    <!--版本号与文档有变化-->
+    <link rel="shortcut icon" type="image/x-icon" href="./static/images/logo.png" />
+  </head>
+  <body>
+    <div id="app"></div>
+    <script>
+        var wms = '';
+        console.log(location.origin);
+        if(location.origin == 'http://localhost:8080'){
+           wms = 'http://tongbai.huihezn.com';
+        }else{
+           wms = location.origin;
+        }
+        window.applicationConfig = {
+           // WxPath:location.origin+'/#/', 
+           securityServer:'http://api.huihezn.com/securityApi',
+           currencyServer:'http://api.huihezn.com/currencyApi',
+           businessServer:'http://api.huihezn.com/businessApi',
+           wechatMpServer:wms +'/wxmp',
+           fileApi:'http://api.huihezn.com/fileApi'
+        }
+    </script>
+  </body>
+</html>

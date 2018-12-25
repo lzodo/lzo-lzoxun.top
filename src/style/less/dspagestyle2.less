@@ -1,0 +1,715 @@
+.Flex {
+    display: -webkit-box;
+    /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;
+    /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;
+    /* TWEENER - IE 10 */
+    display: -webkit-flex;
+    /* NEW - Chrome */
+    display: flex;
+}
+
+.FlexVal(@flex) {
+    -webkit-box-flex: @flex;
+    /* OLD - iOS 6-, Safari 3.1-6 */
+    -moz-box-flex: @flex;
+    /* OLD - Firefox 19- */
+    -webkit-flex: @flex;
+    /* Chrome */
+    -ms-flex: @flex;
+    /* IE 10 */
+    flex: @flex;
+}
+
+.align-items(@val) {
+    -webkit-box-align-items: @val;
+    -moz-box-align-items: @val;
+    -webkit-align-items: @val;
+    -ms-align-items: @val;
+    align-items: @val;
+}
+
+.justify-content(@val) {
+    -webkit-box-justify-content: @val;
+    -moz-box-justify-content: @val;
+    -webkit-justify-content: @val;
+    -ms-justify-content: @val;
+    justify-content: @val;
+}
+
+.flex-direction(@val) {
+    -webkit-box-flex-direction: @val;
+    -moz-box-flex-direction: @val;
+    -webkit-flex-direction: @val;
+    -ms-flex-direction: @val;
+    flex-direction: @val;
+}
+
+.payment .ui-dialog_ft {
+    display: none;
+}
+/*首页样式*/
+.login-img img {
+    width: 100%;
+}
+
+.login-form {
+    /*padding: 0 30px;*/
+}
+
+.ui-btn-code {
+    background-color: #fff;
+    border-radius: 100px;
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+.login-form-input {
+    font-size: 20px;
+}
+
+.login-form-input::-webkit-input-placeholder {
+    font-size: 17px;
+}
+
+.login-clean img {
+    width: 14px;
+    height: 14px;
+    margin-top: 20px;
+    margin-right: 10px;
+}
+
+.ui-lgn {
+    margin-top: 13px;
+}
+
+.login-btn {
+    background: #2290F1;
+    color: #ffffff;
+    font-size: 16px;
+    padding: 8px 10px;
+    width: 100%;
+    border-radius: 2px;
+}
+
+.login-btn.on {
+    background: #2230F1;
+    color: #fff;
+}
+
+.ui-logo-bottom img {
+    width: 98px;
+    height: 27px;
+    margin-top: 75px;
+    margin-bottom: 12px;
+}
+/*首页样式结束*/
+/*券样式*/
+body {
+    background: #EEF3F6;
+}
+
+.ui-xz{
+    position: absolute;
+    right:5px;
+    top:2px;
+    font-size: 1rem;
+    color: #f1f1f1;
+    &.isActive{
+        color:#ff7029;
+    }
+}
+
+.ui-coupon-list {
+    padding: 12px;
+}
+
+.ui-p-coupon {
+    min-height: 100px;
+    background-color: #fff;
+    border-radius: 3px;
+    position: relative;
+    border-bottom: 2px solid #395A7E;
+    box-shadow: 0 0 4px rgba(0,0,0,0.2);
+}
+
+.ui-cp-box {
+    display: -webkit-box;
+    -webkit-box-align: center;
+    position: relative;
+}
+
+.ui-cp-price {
+    width: 4.2rem;
+    text-align: center;
+    position: relative;
+    color: #395A7E;
+}
+
+.ui-cp-price span {
+    font-size: 1.2rem;
+    color: #395A7E;
+    margin-left: 0.2rem;
+}
+
+.ui-top-avatar {
+    position: absolute;
+    margin-top: -0.15rem;
+    left: 4.05rem;
+    width: 8px;
+    height: 8px;
+    box-shadow: -1px 0 0 rgba(0,0,0,.03) inset;
+    border-radius: 8px;
+    background: #EEF3F6;
+}
+
+.ui-bottom-avatar {
+    position: absolute;
+    bottom: -0.2rem;
+    left: 4.05rem;
+    width: 8px;
+    height: 8px;
+    box-shadow: -1px 0 0 rgba(0,0,0,.03) inset;
+    border-radius: 8px;
+    background: #EEF3F6;
+}
+
+.ui-cp-park {
+    font-size: 15px;
+    color: #535C61;
+    font-weight: 200;
+    font-weight: bold;
+}
+
+.ui-cp-date {
+    font-size: 12px;
+    color: #95A3AC;
+    padding-top: 20px;
+}
+
+.ui-cp-count {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    padding: 3px 10px;
+    color: #888;
+    background: #F2F2F2;
+    border-radius: 100px;
+    font-size: 12px;
+}
+
+.ui-cp-instr {
+    font-size: 0.52rem;
+    color: #5A95DD;
+}
+
+.ui-cp-btn {
+    text-align: right;
+}
+
+.ui-cp-btn a {
+    padding: 0.15rem 0.5rem;
+    line-height: 30px;
+    text-align: center;
+    background-color: #fff;
+    color: #2196f3;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    margin-right: 0.5rem;
+    border: 1px solid #2196f3;
+    font-size: 0.52rem;
+}
+
+.ui-cp-btn2 {
+    -webkit-box-flex: 1;
+    text-align: right;
+}
+
+.ui-cp-btn2 a {
+    padding: 0.15rem 0.5rem;
+    line-height: 30px;
+    text-align: center;
+    background-color: #fff;
+    color: #fe8245;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    margin-right: 0.5rem;
+    border: 1px solid #fe8245;
+}
+
+.ui-m-r {
+    margin-right: 0.8rem;
+    font-size: 0.64rem;
+    color: #2196f3;
+}
+
+.ui-cp-l {
+    -webkit-box-flex: 1;
+    padding: 24px 20px 14px;
+    border-left: 1px dashed #ccc;
+}
+
+.ui-p-coupon.on {
+    border-left: 5px solid #fe8245;
+}
+
+.ui-p-coupon.on .ui-cp-price span {
+    color: #fe8245;
+}
+
+.ui-p-coupon.on .ui-cp-instr {
+    color: #fe8245;
+}
+
+.ui-p-coupon.on .ui-m-r {
+    color: #fe8245;
+}
+
+.ui-p-coupon.on .ui-cp-btn a {
+    border: 1px solid #fe8245;
+    color: #fe8245;
+}
+
+.ui-bottom-footer {
+    padding: 0 12px 20px;
+}
+
+.ui-logo img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 60px;
+}
+
+.ui-down-btn {
+    background: #32465C;
+    border-color: #32465C;
+    color: #ffffff;
+    padding: 12px;
+    border-radius: 5px;
+}
+
+.ui-down-btn.on {
+    display: none;
+}
+
+.ui-success {
+    color: #535C61;
+    font-size: 17px;
+    margin-top: 8px;
+}
+
+.ui-txt {
+    color: #95A3AC;
+    font-size: 13px;
+    margin-top: 8px;
+}
+/*停车券列表样式*/
+.platelist {
+    width: 100%;
+    height: 100%;
+    .Flex();
+    .flex-direction(column);
+}
+.platelist-up {
+    .FlexVal(1);
+    overflow-x: auto;
+
+    .emptylist {
+        width: 100%;
+        height: 100%;
+
+        .emptylist-con {
+            width: 100%;
+            height: 500px;
+            .Flex();
+            .align-items(center);
+            .justify-content(center);
+            .flex-direction(column);
+
+            img {
+                width: 166px;
+                display: block;
+            }
+
+            .errorfont {
+                font-size: 15px;
+                color: #888888;
+                letter-spacing: -0.37px;
+                line-height: 18px;
+                margin-top: 20px;
+            }
+        }
+    }
+
+    .notemptylist {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.platelist-down {
+    height: 10%;
+    padding: 0 10px;
+    .Flex();
+    .align-items(center);
+}
+
+.ui-p-coupon:not(:first-child) {
+    margin-top: 15px;
+}
+/*outpayment样式 支付上拉*/
+.qbpayico {
+    margin: 0 0.5rem;
+    font-size: 1.2rem;
+    color: #395A7E;
+
+    &.up {
+        margin: 0 0.2rem;
+    }
+}
+
+.wxpayico {
+    margin: 0 0.5rem;
+    font-size: 1.2rem;
+    color: #14B83B;
+
+    &.up {
+        margin: 0 0.2rem;
+    }
+}
+
+.payname {
+    font-size: 0.65rem;
+    color: #333333;
+    letter-spacing: -0.37px;
+    font-weight: 400;
+}
+
+.paydename {
+    color: #888888;
+}
+
+.rightico {
+    width: 100%;
+    height: 100%;
+    .Flex();
+    .align-items(center);
+    .justify-content(center);
+}
+
+.rightico i {
+    font-size: 1rem;
+    color: #F1F1F1;
+
+    &.isActive {
+        color: #FF7029;
+    }
+}
+
+.payloading {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.1);
+    z-index: 999;
+}
+
+.payloading img {
+    width: 30%;
+    display: block;
+    margin: 7rem auto;
+    animation: laoding linear 1s infinite;
+    -webkit-animation: laoding linear 1s infinite;
+}
+@keyframes laoding {
+    0% {
+        transform: rotate(0);
+        -webkit-transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+    }
+}
+@-webkit-keyframes laoding {
+    0% {
+        transform: rotate(0);
+        -webkit-transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+    }
+}
+/*车牌列表样式*/
+.platelist {
+    width: 100%;
+    height: 100%;
+    .Flex();
+    .flex-direction(column);
+}
+
+.platelist-up {
+    .Flex();
+    overflow-x: auto;
+
+    .emptylist {
+        width: 100%;
+        height: 100%;
+
+        .emptylist-con {
+            width: 100%;
+            height: 20.4082rem;
+            .Flex();
+            .align-items(center);
+            .justify-content(center);
+            .flex-direction(column);
+
+            img {
+                width: 6.7755rem;
+                display: block;
+            }
+
+            .errorfont {
+                font-family: PingFangSC-Regular;
+                font-size: 0.6122rem;
+                color: #888888;
+                letter-spacing: -0.37px;
+                line-height: 0.7347rem;
+                margin-top: 0.8163rem;
+            }
+        }
+    }
+
+    .notemptylist {
+        width: 100%;
+        height: 100%;
+        padding: 0.4082rem;
+
+        .plate-bind {
+            height: 3.2653rem;
+            width: 100%;
+            background: #fff;
+            border-radius: 0.2041rem;
+            padding: 0.6122rem;
+            position: relative;
+        }
+
+        .plate-bind--num {
+            font-size: 0.6939rem;
+            color: #333333;
+            letter-spacing: -0.41px;
+            line-height: 0.8163rem;
+            display: block;
+            width: 100%;
+            height: 100%;
+            line-height: 2.0408rem;
+        }
+
+        .plate-bind--bindform {
+            font-size: 0.5306rem;
+            color: #FF9966;
+            letter-spacing: -0.32px;
+            line-height: 0.6531rem;
+            position: absolute;
+            right: 0.6122rem;
+            bottom: 0.4082rem;
+        }
+
+        .plate-title {
+            font-size: 0.6122rem;
+            color: #888888;
+            letter-spacing: -0.37px;
+            line-height: 0.7347rem;
+            display: block;
+            padding: 0.6122rem 0;
+        }
+    }
+}
+
+.platelist-down {
+    height: 10%;
+    padding: 0 0.4082rem;
+    .Flex();
+    .align-items(center);
+}
+/* 左滑删除 样式*/
+.listMain {
+    padding: 0;
+    width: 100%;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: visible;
+}
+
+.listMain .wrap {
+    width: 125%;
+    overflow: hidden;
+    transition: all 0.3s linear;
+    position: relative;
+}
+
+.listMain .wrap .list-item {
+    float: left;
+    width: 80%;
+    height: 3.2653rem;
+    background: #fff;
+    transition: all 0.3s linear;
+    border-radius: 0.2041rem;
+    padding: 0.6122rem;
+    margin-bottom: 0.6122rem;
+    .Flex();
+    .align-items(center);
+    font-size: 0.6939rem;
+    color: #333333;
+}
+
+.listMain .wrap .delete {
+    float: right;
+    display: block;
+    height: 3.2653rem;
+    border-radius: 50%;
+    line-height: 3.2653rem;
+    width: 3.2653rem;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: 500;
+    color: #fff;
+    background: #ff1744;
+}
+
+.swipeleft {
+    transform: translateX(-20%);
+}
+/* 左滑删除 样式 end*/
+.QueryMask {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    background: rgba(255,255,255,0.1);
+    .Flex();
+    .align-items(center);
+    .justify-content(center);
+
+    .QueryMaskcon {
+        padding: 0.3265rem 0.5306rem;
+        background: rgba(0,0,0,0.3);
+        border-radius: 0.2041rem;
+        font-size: 0.7rem;
+        color: #fff;
+    }
+}
+/*车牌查询时按钮遮罩*/
+.ui-btn-primary.selectpls {
+    position: relative;
+    border: none;
+    overflow: hidden;
+}
+
+.selectMask {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: #ccc;
+    .Flex;
+    .justify-content(center);
+    .align-items(center);
+}
+/*通知车场样式*/
+.notifypark {
+    width: 100%;
+    height: 100%;
+    background: #2290F1 !important;
+    position: fixed;
+    z-index: 999;
+}
+.notifypark-globule {
+    width: 0.4082rem;
+    height: 0.4082rem;
+    background: #fff;
+    border-radius: 50%;
+    position: absolute;
+    right: 1.7rem;
+    top: 1rem;
+}
+.notifypark-con {
+    width: 10.6531rem;
+    height: 10.6531rem;
+    border: 1px solid #e2e2e2;
+    border-radius: 50%;
+    margin: 2.0408rem auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    animation: parkrotete 2s infinite;
+}
+.notifypark-con--flo2 {
+    width: 8.7755rem;
+    height: 8.7755rem;
+    background: rgba(255,255,255,0.4);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.notifypark-con--flo3 {
+    width: 8.1633rem;
+    height: 8.1633rem;
+    background: #fff;
+    border-radius: 50%;
+}
+.msgfont {
+    font-size: 0.9796rem;
+    color: #2290F1;
+    letter-spacing: -0.58px;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 6.6rem;
+    left: 0;
+}
+@keyframes parkrotete {
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+@-webkit-keyframes parkrotete {
+    from {
+        transform: rotate(0);
+        -webkit-transform: rotate(0);
+    }
+    to {
+        transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+/*修改*/
+.v-pay-time.chan{
+    font-size: 0.52rem;
+    color: #888;
+    padding: 0 .7rem .5rem;
+    padding-bottom:0.7347rem;
+    span{
+        color:#3FADF4;
+        margin: 0 0.2rem;
+    }
+}
+.payment .ui-left-avatar, .ui-right-avatar{
+    bottom: 4.1rem;
+
+}
