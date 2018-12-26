@@ -1,7 +1,7 @@
 <template>
   <div id="HvSkill">
      <div class="HS_cen">
-        技术
+
      </div>
   </div>
 </template>
@@ -15,10 +15,12 @@ export default {
   name: 'App',
   data() {
     return {
+       a:`信息页面input验证,管理员管理用户信息页面级验证`
     }
   },
   methods: {
-  
+    ...mapActions({
+    })
   },
   mounted() {
 

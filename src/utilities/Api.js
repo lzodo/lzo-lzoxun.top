@@ -9,6 +9,7 @@ import Axios from './Ajax';
 // 电影详情 ：https://api.douban.com/v2/movie/subject/:id
 
 const getMovieInfo = 'https://api.douban.com/v2/movie/us_box';
+const getToken = 'http://api.huihezn.com/securityApi/auth/login?username=123456&password=111111&t=' + new Date().getTime();
 const BaseApi = {
   getMovieInfo: (count) => { //获取豆瓣电影接口
     switch(count){
@@ -26,5 +27,8 @@ const BaseApi = {
              break;
     }
   },
+  getToken:() => { 
+     return Axios.res('get',getToken);
+  }
  }
 export default BaseApi;

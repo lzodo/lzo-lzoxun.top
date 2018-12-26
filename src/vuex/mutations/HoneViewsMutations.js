@@ -11,6 +11,11 @@ const DevInfoMutations = {
         params[1](res);
       })
     },
+    ['getToken']({ commit, state }, params) { 
+      Api.getToken().then(function(res) {
+        params(res);
+      })
+    },
   },
   mutations: {
   
