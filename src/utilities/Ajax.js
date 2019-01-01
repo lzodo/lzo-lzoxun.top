@@ -7,7 +7,7 @@ import xfdToast from '../components/dialog/index';
 class Axios {
   constructor() {}
 
-  static res(type, url, param) {
+  static res(typ e, url, param) {
       let resParam = {};
       // Toast.loading.open();
       if (param) {

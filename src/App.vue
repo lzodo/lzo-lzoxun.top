@@ -9,8 +9,8 @@
 <script>
 export default {
   name: 'app',
-  watch: {
-    '$route' (to, from) {
+  watch: {  
+    '$route' (to, from ) {
       if(from.fullPath != '/'){
         const toDepth = to.path.split('/').length
         const fromDepth = from.path.split('/').length
