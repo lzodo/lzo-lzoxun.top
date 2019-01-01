@@ -54,7 +54,7 @@
          </div>
          
       </div>
-      <div class="Ci_right">
+      <div ref='printModo' class="Ci_right">
         <div class="Ci_right_card">
            <div class="cardphoto">
               <img src="/static/images/photo.jpg" width="100%" />
@@ -102,7 +102,7 @@ export default {
 
   },
   mounted() {
-
+  
   },
 }
 

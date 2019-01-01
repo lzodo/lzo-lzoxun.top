@@ -4,13 +4,17 @@ Vue.use(Vuex);
 
 import DevInfoMutations from '../mutations/DevInfoMutations';
 import HoneViewsMutations from '../mutations/HoneViewsMutations';
-
+import {Data} from '../../utilities';
 
 
 const state = {
    thisRouter:'',
    notdata_url:'./static/images/notdata.png', //没得到数据小图标
    notpowe_url:'./static/images/notpower.png', //没权限图标
+   admin:'',
+
+   isPosition:false,
+   ArticData:Data.ArticData
 }
 const actions = {
     increment ({ commit, state }) {

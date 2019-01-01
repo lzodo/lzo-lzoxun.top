@@ -16,6 +16,11 @@ const DevInfoMutations = {
         params(res);
       })
     },
+    ['youdaoAPI']({ commit, state }, params) { //调用有道接口
+      Api.youdaoAPI(params[0]).then(function(res) {
+        params[1](res);
+      })
+    },
   },
   mutations: {
   

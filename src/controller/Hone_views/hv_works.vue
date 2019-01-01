@@ -1,7 +1,6 @@
 <template>
   <div id="HvWorks">
     <div class="HW_cen">
-      <div class="HW_leftMenu"></div>
       <div class="HW_rightCen">
           <textarea class="getTokenStyle">localStorage.setItem('loginInfoJson', JSON.stringify({'token': '{{token}} '}))</textarea>
       </div>
@@ -9,6 +8,8 @@
   </div>
 </template>
 <script>
+import md5 from 'md5'
+
 import {
   mapState,
   mapActions,
@@ -23,15 +24,16 @@ export default {
   },
   methods: {
     ...mapActions({
-      getToken: 'getToken'
-    })
+      getToken: 'getToken',
+    }),
 
   },
   mounted() {
     let _this = this;
-    this.getToken(function(res) {
-      _this.token = res.data.result.token;
-    })
+    
+    // this.getToken(function(res) {
+    //   _this.token = res.data.result.token;
+    // })
   },
 }
 
@@ -42,12 +44,6 @@ export default {
   padding: 20px 40px;
   box-shadow: 0 1px 6px #ddd;
   display: flex;
-  .HW_leftMenu{
-    width: 150px;
-    min-height: 600px;
-    background: #f00;
-    margin-right: 10px;
-  }
   .HW_rightCen{
     flex:1;
     background:#fff;

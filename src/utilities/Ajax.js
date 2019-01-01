@@ -23,11 +23,12 @@ class Axios {
         });
   } 
 
-  static jqAjax(url,callback){
+  static jqAjax(url,data){
     return $.ajax({
         url:url,
         type:'get',
         dataType:'jsonp', //指定服务器返回的数据类型
+        data:data||{},
         success: function (data) {
             return data;
         }

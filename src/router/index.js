@@ -70,13 +70,25 @@ const router = new Router({
 })
 
 router.beforeEach((to, from, next) => {
+  let admin = window.localStorage.getItem("isAdmin");
+  if(admin != null){
+      if(admin == 'false'){
+        store.state.admin = false;
+      }else{
+        store.state.admin = true;
+      }
+  }else{
+    store.state.admin = false;
+  }
+  store.state.thisRouter = to.path;
 
+  console.log(store.state.thisRouter)
   switch (to.name) { //设置标题
     case 'HonePage':
       Tool.setTitle("首页");
       break;
     default:
-      Tool.setTitle("资源汇总");
+      Tool.setTitle("仲勋的博客--web前端");
       break;
   }
 

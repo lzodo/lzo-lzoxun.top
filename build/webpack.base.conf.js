@@ -39,6 +39,8 @@ module.exports = {
       'axios': path.resolve(__dirname, '../static/js/axios.min.js'),
       'jquery': path.resolve(__dirname, '../static/js/jquery.min.js'),
       'swiper': path.resolve(__dirname, '../static/js/swiper.min.js'),
+      'print': path.resolve(__dirname, '../static/js/print.js'),
+      'md5': path.resolve(__dirname, '../static/js/md5.min.js'),
     }
   },
   module: {

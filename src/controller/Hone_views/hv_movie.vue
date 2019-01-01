@@ -1,7 +1,7 @@
 <template>
   <div id="HvMovie">
      <div class="movies">
-       <div class="puLine_title">{{datas.title}} --找到{{datas.count}}个</div>
+       <div class="puLine_title">{{datas.title}} {{datas.count}}</div>
        <waterfall class='waterfall clearfix' :line-gap="200" :watch="datas.subjects" :single-max-width='200' :align='Align' >
           <!-- each component is wrapped by a waterfall slot -->
           <waterfall-slot class='water'

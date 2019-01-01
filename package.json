@@ -17,6 +17,7 @@
   "dependencies": {
     "bootstrap": "^3.3.7",
     "element-ui": "^2.4.11",
+    "file-saver": "^2.0.0",
     "lrz": "^4.9.40",
     "mint-ui": "^2.2.13",
     "popper": "^1.0.1",

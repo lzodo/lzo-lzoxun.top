@@ -1,4 +1,4 @@
-$minWidth: 1280px;
+$minWidth: 880px;
 $edgeSpur: 40px;
 html,body{
   background: #eaeaea !important;
@@ -7,7 +7,7 @@ html,body{
   width: 100%;
   height: 100%;
   *{
-  	transition: all 1s;
+  	transition: all .8s;
   }
 }
 .child-view{
@@ -85,8 +85,6 @@ html,body{
   .Hi_img {
     width: 100%;
     height: 180px;
-    background: url(/static/images/banner.jpg) no-repeat center;
-    background-size: cover;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -126,10 +124,10 @@ html,body{
             line-height: 50px;
             font-size: 15px;
             cursor: pointer;
+            transition: all .3s !important;
             &:hover,&.active{
-            	background: #777;
+            	background: #888;
             	color:#dedede;
-            	font-size: 17px;
             }
     	}
     }
@@ -202,6 +200,7 @@ html,body{
 /*首页*/
 .Hv_ChildInd{
 	width: 100%;
+	background: #f8fafc;
 	padding: 0 $edgeSpur;
     &.HR{
     	.CiMain{
@@ -209,7 +208,8 @@ html,body{
     		min-height: 1810px;
     		margin:10px auto;
     		.Ci_left{
-    			padding-left: 20px;
+    			padding: 20px;
+    			background: #fff;
     			.Hl_name{
     			    width: 100%;
     			    border-bottom: 1px dashed #ccc;				
@@ -257,29 +257,96 @@ html,body{
     	}
     }
 	.CiMain{
-		box-shadow: 0 1px 6px #ddd;
 		width: 100%;
-		min-height: 1000px;
-		background: #fff;
+		min-width: $minWidth;
+		min-height: 800px;
 		margin-top: 10px;
 		border-radius: 5px;
 		display: flex;
 		.Ci_left{
 			flex:1;
-			padding: 10px;
+			padding-bottom: 10px;
+			padding-left: 20px;
 			.Ci_list{
 				width: 100%;
-				padding: 10px;
+				.Ci_item2{
+					width:100%;
+					height: 168px;
+					background:url('/static/images/notdata.png') no-repeat center;
+					margin-top: 30px;
+				}
 			    .Ci_item{
-			    	min-height: 50px;
-			    	border-bottom: 1px dashed #ccc;
-			    }
+			        box-shadow: 0 4px 8px 0 rgba(7,17,27,.05);
+			        &:hover{
+
+			        }
+			    	background:#fff;
+			    	height: 168px;
+                    padding: 24px;
+                    margin-bottom: 10px;
+                    .goBlogLink{
+                    	display: block;
+                    	width:100%;
+                    	height:100%;
+                    	display:flex;
+                    	.g_left{
+                    		height: 120px;
+                    		width: 210px;
+                    		margin-right: 24px;
+                    	}
+                    	.g_right{
+                    		flex:1;
+                    		.g_title{
+                    			font-size: 16px;
+							    line-height: 32px;
+							    font-weight: 700;
+							    color:#1c1f21;
+							    margin-bottom: 5px;
+                    		}
+                    		.tags{
+                    			font-size: 12px;
+                    			color:#4d555d;
+                    			margin-right: 100px;
+                    		}
+                    		.g_description{
+                    			font-size: 13px;
+                    			color:#4d555d;
+                    			margin-top: 5px;
+                    		}
+                    		.time{
+                    			font-size: 12px;
+                    			color:#4d555d;
+                    		}
+                    	}
+                    }		
+          	    }
 			}
 		}
 		.Ci_right{
+		    box-shadow: 0 4px 8px 0 rgba(7,17,27,.05);
+			background: #fff;
 		    width: 279px;
 		    padding: 10px;
-		    border-left: 10px solid #eaeaea;
+		    border-left: 10px solid #f8fafc;
+		    .adminset{
+		    	margin-bottom: 20px;
+		    	.head{
+                   cursor: pointer;
+                   .loginout{
+                   	float: right;
+                   	color:#f90;
+                   }
+                   .loginin{
+                   	
+                   }
+		    	}
+		    	.cen{
+		    		color:#777;
+		    		.newAtc{
+		    			cursor: pointer;
+		    		}
+		    	}
+		    }
 		    .Ci_right_card{
 		    	width: 100%;
 		    	padding: 10px;
@@ -303,18 +370,49 @@ html,body{
 		    		li{
 		    			width: 50px;
 		    			float: left;
+		    			position: relative;
 						margin: 0 9px 0 0;
 					    &:last-child{
 					    	margin-right: 0;
 					    }
+					    .ico_pop{
+					    	position: absolute;
+					    	left: 0;bottom:55px;
+					    	padding: 5px;
+					    	border-radius: 5px;
+					    	// box-shadow: 0 1px 5px #ddd;
+					    	background: #fff;
+					    	display: none;
+					    	.wx_pop{
+					    		width: 120px;
+					    		img{
+					    			width: 100%;
+					    		}
+					    		// height: 120px;
+					    		// background: url(/static/images/wxcode.jpg) no-repeat center cover;
+					    	}
+					    }
+					    &:hover{
+					    	 .ico_pop{
+					    	 	display: block;
+					    	 }
+					    }
+
 		    			a{
 			    		    height: 50px;
 			    		    float: left;
 						    overflow: hidden;
+						    position: relative;
 						    box-shadow: 0px 1px 0px rgba(255,255,255,.1), inset 0px 1px 1px rgba(0,0,0,.7);
 						    width: 50px;
 						    &:hover{
 						    	opacity: .5;
+						    }
+						    .usico{
+						    	display: block;
+						    	width:34px;
+						    	height:34px;
+						    	margin: 8px;
 						    }
 		    			}
 		    		}
@@ -323,3 +421,24 @@ html,body{
 		}
 	}
 }
+
+.AddAtc_mack{
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.5);
+	z-index:999;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	.AddAtc_cen{
+		width: 60%;
+		background: #fff;
+		padding:30px 25px 10px 10px;
+		border-radius: 5px;
+		height: 480px;
+	}
+}
+

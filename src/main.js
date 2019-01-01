@@ -6,6 +6,7 @@ import router from './router'
 import store from './vuex/store/store'
 import './style/sass/app.scss'
 import './style/less/app.less'
+import './style/scroll.css'
 //饿了么ui
 // import MintUI from 'mint-ui'
 // import 'mint-ui/lib/style.min.css'
@@ -15,6 +16,12 @@ import './style/less/app.less'
 
 import Element from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
+
+import Print from 'print'
+
+import md5 from 'md5'
+
+Vue.use(Print) 
 
 Vue.use(Element)
 
