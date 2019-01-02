@@ -31,9 +31,9 @@ export default {
   mounted() {
     let _this = this;
     
-    // this.getToken(function(res) {
-    //   _this.token = res.data.result.token;
-    // })
+    this.getToken(function(res) {
+      _this.token = res.data.result.token;
+    })
   },
 }
 

@@ -81,10 +81,10 @@ export default {
       });
     },
     getCity(){
-      let _this=this;
-      Tool.getLatLong(function(longlat){
-        if(longlat){
-          _this.$store.state.isPosition = true;
+      // let _this=this;
+      // Tool.getLatLong(function(longlat){
+      //   if(longlat){
+      //     _this.$store.state.isPosition = true;
           // 使用百度地图JS API
           // let point = new BMap.Point(longlat.long,longlat.lat);   
           // let geoc = new BMap.Geocoder();
@@ -92,10 +92,10 @@ export default {
           //   let addComp = rs.addressComponents;
           //   console.log('您所在城市：'+addComp.city);
           // });
-        }else{
-          _this.$store.state.isPosition = false;
-        }
-      });
+      //   }else{
+      //     _this.$store.state.isPosition = false;
+      //   }
+      // });
     },
     resetPage() {
       let _this = this;
