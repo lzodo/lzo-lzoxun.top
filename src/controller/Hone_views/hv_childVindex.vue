@@ -30,7 +30,7 @@
         <!--  管理员登入 -->
         <el-card class="box-card adminset">
           <div slot="header" class="clearfix head">
-            <span @click="goAdmin" class="loginin">管理员登入</span>
+            <span @click="goAdmin" class="loginin"> <span class="iconfont" style="float: left;margin-right:2px;font-size:16px;">&#xe601;</span>管理员登入</span>
             <span v-show="$store.state.admin" @click="loginoutfn" class="loginout">退出</span>
           </div>
           <div style="" v-show="true" class="cen">
@@ -59,7 +59,7 @@
                   <div class="wx_pop"><img src="/static/images/qqcode.jpg"></div>
                 </div>
                 <a href="tencent://message/?uin=869664233&Site=QQ交谈&Menu=yes" target="blank" slot="reference">
-                  <span class="usico" :style="{'background': 'url(/static/images/icoqq.png) center center no-repeat','background-size':'cover'}"></span>
+                  <span class="usico" :style="{'background': 'url(./static/images/icoqq.png) center center no-repeat','background-size':'cover'}"></span>
                 </a>
             </li>
             <li>
@@ -67,12 +67,12 @@
                   <div class="wx_pop"><img src="/static/images/wxcode.jpg"></div>
                 </div>
                 <a href="javascript:;">
-                  <span class="usico" :style="{'background': 'url(/static/images/icowx.png) center center no-repeat','background-size':'cover'}"></span>
+                  <span class="usico" :style="{'background': 'url(./static/images/icowx.png) center center no-repeat','background-size':'cover'}"></span>
                 </a>
             </li>
             <li>
                 <a href="https://github.com/liaozhongxun">
-                  <span class="usico" :style="{'background': 'url(/static/images/icogithub.png) center center no-repeat','background-size':'cover'}"></span>
+                  <span class="usico" :style="{'background': 'url(./static/images/icogithub.png) center center no-repeat','background-size':'cover'}"></span>
                 </a>
             </li>
 <!--             <li>
@@ -86,7 +86,7 @@
     </div>
     <div refs="AddAtc" class="AddAtc_mack" v-show='isShowAtc'>
       <div class="AddAtc_cen">
-        <el-form :rules="rules" ref="ruleForm" :model="form" label-width="80px">
+        <el-form :rules="rules" ref="ruleForm" :model="form" label-width="80px" size='mini'>
           <el-form-item label="文章标题" prop='title'>
             <el-input v-model="form.title"></el-input>
           </el-form-item>
@@ -111,9 +111,9 @@
             <el-input type="textarea" v-model="form.desc"></el-input>
           </el-form-item>
           <el-form-item>
-            <el-button type="primary" @click="createAtc('ruleForm')">立即创建</el-button>
-            <el-button type="primary" @click="resetAtc('ruleForm')">重置</el-button>
-            <el-button @click="isShowAtc=false">取消</el-button>
+            <el-button type="primary" @click="createAtc('ruleForm')" size='mini'>立即创建</el-button>
+            <el-button type="primary" @click="resetAtc('ruleForm')" size='mini'>重置</el-button>
+            <el-button @click="isShowAtc=false" size='mini'>取消</el-button>
           </el-form-item>
         </el-form>
       </div>
@@ -239,7 +239,8 @@ export default {
           confirmButtonText: '确定',
           cancelButtonText: '取消',
         }).then(({ value }) => {
-          if (md5(value) == "65a5b329f643cb72911c4a8d1dc2d859") {
+          console.log(md5(123456))
+          if (md5(value) == "e10adc3949ba59abbe56e057f20f883e") {
             this.$store.state.admin = true;
             window.localStorage.setItem("isAdmin", true)
             this.$message({

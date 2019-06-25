@@ -4,7 +4,7 @@
       <div class="HR_left Ci_left">
          <div class="Hl_name">
            <div class="namepy">[zhòng xūn]</div>
-           <div class="namefont">仲 勋<span>(一介的代码搬运工)</span></div>
+           <div class="namefont">仲 勋<span>(自我感觉很厉害的人)</span></div>
          </div>
          <div class="Hl_jianjie">
               <p class="everyPhase">仲勋,男,汉族，1994年6月，福建南平人，2016年9月毕业于福州职业技术学院，计算机应用技术专业，于大二无意间接触web前端行业，开始精心专研究.</p>

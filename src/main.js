@@ -7,6 +7,7 @@ import store from './vuex/store/store'
 import './style/sass/app.scss'
 import './style/less/app.less'
 import './style/scroll.css'
+import '../static/fonts/iconfont.css'
 //饿了么ui
 // import MintUI from 'mint-ui'
 // import 'mint-ui/lib/style.min.css'
@@ -20,6 +21,14 @@ import 'element-ui/lib/theme-chalk/index.css'
 import Print from 'print'
 
 import md5 from 'md5'
+
+import VueGlobalTool from './utilities/VueGlobalTool'
+
+//代码高亮
+import VueHighlightJS from 'vue-highlightjs'
+import 'highlight.js/styles/atom-one-dark.css'
+Vue.use(VueHighlightJS)
+
 
 Vue.use(Print) 
 

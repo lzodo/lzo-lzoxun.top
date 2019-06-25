@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <transition :name="transitionName" :duration="400">
+  <!--   <transition :duration="0"> -->
       <router-view class='child-view'></router-view>
-    </transition>
+   <!--  </transition> -->
   </div>
 </template>
 

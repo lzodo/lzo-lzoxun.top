@@ -4,24 +4,25 @@
       <ul class="list">
         <li class="items first"><span></span></li>
         <li class="items active">首页</li>
-        <li v-show='$store.state.admin' class="items">技术</li>
+        <li @click="handleGoto('/CvIndex')" class="items">案例</li>
         <li v-show='$store.state.admin' class="items">创意</li>
       </ul>
       <div class="right">
-        <mallki className="mallki-text" text="进入我的github博客" href='https://lzoxun.github.io'></mallki>
+         <span class="iconfont" style="font-size: 20px; color:#4dd9d5;">&#xe718;</span>
+        <mallki className="mallki-text" text="进入我的github" href='https://lzoxun.github.io'></mallki>
       </div>
     </div>
     <div class="Hi_binner">
-      <div class="Hi_img" :style="{'background': 'url('+bannerpic+') no-repeat center','background-size':'cover'}">
+      <div class="Hi_img" :style="{'background': 'url('+bannerpic+') no-repeat center center','background-size':'cover'}">
         <div ref='Hi_banfont' class="font"></div>
       </div>
       <sticky className="Hi_sticky" :zIndex='999' :stickyTop='flextop'>
         <ul class="sti_ul">
-          <li ref='sy' class="sti_ul_li active" @click="handleGoto('/HvChildVindex')">首页</li>
-          <li v-show='$store.state.admin' ref='gz' class="sti_ul_li" @click="handleGoto('/HvWorks')">方式/方法</li>
+          <li ref='sy' class="sti_ul_li active" @click="handleGoto('/HvChildVindex')">Main</li>
+          <li ref='gz' class="sti_ul_li" @click="handleGoto('/HvWorks')">方式/方法</li>
           <li v-show='$store.state.admin' ref='js' class="sti_ul_li" @click="handleGoto('/HvSkill')">工作简历</li>
-          <li ref='dy' class="sti_ul_li" @click="handleGoto('/HvMovie')">电影</li>
-          <li ref='gyxg' class="sti_ul_li" @click="handleGoto('/HvResume')">关于勋戈</li>
+ <!--          <li ref='dy' class="sti_ul_li" @click="handleGoto('/HvMovie')">电影</li> -->
+          <li ref='gyxg' class="sti_ul_li" @click="handleGoto('/HvResume')">About</li>
         </ul>
       </sticky>
     </div>
@@ -140,7 +141,7 @@ export default {
       }
       _this.bannerpic = banpics[banpicCont];
     },12000)
-    Tool.littleChar('2018年，是很不好的一年，这年结束了，不好也就结束了',this.$refs.Hi_banfont,150);
+    Tool.littleChar('do shi xiao shi qing',this.$refs.Hi_banfont,150);
     this.resetPage()
     this.getCity();
   },

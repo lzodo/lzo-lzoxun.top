@@ -60,6 +60,16 @@ const route = [{
     component: resolve => require(['@/controller/Hone_views/hv_index'], resolve)
   },
   {
+    path: '/CvIndex',
+    name: 'CvIndex',
+    component: resolve => require(['@/controller/Case_views/cv_index'], resolve),
+    children:[
+      {path:'/filterNumber',components: {CvViews3: resolve => require(['@/controller/Case_views/demo/js/filterNumber'],resolve)}},
+      {path:'/Css_Grid',components: {CvViews3: resolve => require(['@/controller/Case_views/demo/css/Css_Grid'],resolve)}},
+      {path:'/Css_Flex',components: {CvViews3: resolve => require(['@/controller/Case_views/demo/css/Css_Flex'],resolve)}},
+    ]
+  },
+  {
     path: '/HvErrey',
     name: 'HvErrey',
     component: resolve => require(['@/controller/Hone_views/hv_errey'], resolve)
@@ -88,7 +98,7 @@ router.beforeEach((to, from, next) => {
       Tool.setTitle("首页");
       break;
     default:
-      Tool.setTitle("仲勋的博客--web前端");
+      Tool.setTitle("学习资料总结");
       break;
   }
 
