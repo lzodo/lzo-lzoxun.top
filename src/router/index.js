@@ -67,6 +67,11 @@ const route = [{
       {path:'/filterNumber',components: {CvViews3: resolve => require(['@/controller/Case_views/demo/js/filterNumber'],resolve)}},
       {path:'/Css_Grid',components: {CvViews3: resolve => require(['@/controller/Case_views/demo/css/Css_Grid'],resolve)}},
       {path:'/Css_Flex',components: {CvViews3: resolve => require(['@/controller/Case_views/demo/css/Css_Flex'],resolve)}},
+      {path:'/Css_Flex',components: {CvViews3: resolve => require(['@/controller/Case_views/demo/css/Css_Flex'],resolve)}},
+      {path:'/JS_DataInter',components: {CvViews3: resolve => require(['@/controller/Case_views/demo/js/JS_DataInter'],resolve)}},
+      {path:'/JS_nodejs',components: {CvViews3: resolve => require(['@/controller/Case_views/demo/js/JS_nodejs'],resolve)}},
+      {path:'/PY_Document',components: {CvViews3: resolve => require(['@/controller/Case_views/demo/python/PY_Document'],resolve)}},
+      {path:'/Linux',components: {CvViews3: resolve => require(['@/controller/Case_views/demo/Other/Linux'],resolve)}},
     ]
   },
   {

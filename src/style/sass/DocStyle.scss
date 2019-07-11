@@ -1,0 +1,49 @@
+.DocWarp {
+  padding: 10px;
+}
+.InnerDocWarp {
+  padding: 10px;
+  background: #fff;
+  border-radius: 5px;
+  .h1 {
+    font-size: 17px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;width: 100%;
+    display: inline-block;
+
+  }
+  .h2 {
+    color: #777;
+    font-size: 15px;
+    padding-bottom: 3px;
+    margin-bottom: 3px;
+    width: 100%;
+    display: inline-block;
+    border-bottom: 1px dashed #e2e2e2;
+  }
+  .h3 {
+    color: #777;
+    font-size: 13px;
+  }
+  .strong {
+    font-weight: bold;
+  }
+  .content {
+    color: #777;
+    font-size: 15px;
+  }
+}
+
+.highlightjs_warp {
+  border-radius: 10px;
+}
+.hljs {
+  padding: 0 !important;
+  background: #333 !important;
+  .hljs-comment,
+  .hljs-quote {
+    font-style: normal !important;
+  }
+}

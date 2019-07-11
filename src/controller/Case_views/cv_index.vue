@@ -26,7 +26,7 @@
                   <div class="item_cen" :title="item.name" @click='GoModo($event,item.link)'>
                     <div class="clickobj"></div>
                     <div class="mark"><img src="/static/images/loading.gif"/></div>
-                    <div class="img" :style='{"background":"url("+item.url+") center center / cover no-repeat"}'> </div>
+                    <div class="img" :style='{"background":"url("+item.url+") center center / contain no-repeat"}'> </div>
                     <div class="name">
                       {{item.name}}
                     </div>
@@ -85,6 +85,9 @@ export default {
           name: 'Html To Html5'
         },
         {
+          name: 'Python'
+        },
+        {
           name: 'Other'
         },
       ],
@@ -126,7 +129,7 @@ export default {
     this.thisMenuName = this.menuData[0].name;
     $('.CaseType li').first().addClass('active');
 
-    $('.CaseType li').hover(function(e, index) {
+    $('.CaseType li').click(function(e, index) {
       that.thisMenuName = that.menuData[$(e.target).index()].name;
       that.isShowMenu = true;
       that.detMenuType = that.thisMenuName;

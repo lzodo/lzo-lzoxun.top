@@ -1,6 +1,6 @@
 <template>
-  <div class="mydemo css-grid">
-     <span class="MTitle">1、容器与项目</span>
+  <div class="InnerDocWarp css-grid">
+     <span class="h1">1、容器与项目</span>
      <div class="demo demo1">
         <ul>
            <li>Gird</li><li>Gird</li><li>Gird</li><li>Gird</li><li>Gird</li><li>Gird</li><li>Gird</li><li>Gird</li><li> </li>
@@ -23,7 +23,7 @@
         }
         </code>
     </pre>
-    <span class="MTitle">2、auto-fit 跳过固定列实现响应式</span>
+    <span class="h1">2、auto-fit 跳过固定列实现响应式</span>
     <div class="demo demo3">
         <ul>
            <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li>
@@ -41,7 +41,7 @@
         }
         </code>
     </pre>
-    <span class="MTitle">3、fraction 简写 fr</span>
+    <span class="h1">3、fraction 简写 fr</span>
 
     <div class="demo demo2">
         <ul>
@@ -62,7 +62,7 @@
         }
         </code>
     </pre>
-    <span class="MTitle">4、minmax 定义的范围大于或等于 min， 小于或等于 max。</span>
+    <span class="h1">4、minmax 定义的范围大于或等于 min， 小于或等于 max。</span>
     <div class="demo demo4">
         <ul>
            <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li>
@@ -165,7 +165,7 @@ export default {
     li{color:#fff;}
   }
 }
-// .MTitle{
+// .h1{
 //   padding: 10px 0 0px;
 //   display: block;
 //   font-size: 16px;

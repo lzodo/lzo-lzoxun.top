@@ -1,182 +1,95 @@
-export default {
+let datas = {
   Data: [{
-      name: 'js限制只输入数字和点',
-      url: './static/images/demo/filterNumber.jpg',
-      link: '/filterNumber',
-      type: 'Javascript And Vue'
-    },
-    {
-      name: 'Css_Grid基本布局',
-      url: './static/images/demo/Css_Grid.jpg',
-      link: '/Css_Grid',
-      type: 'Css To Css3'
-    },
-    {
-      name: 'Css_Flex基本布局',
-      url: './static/images/banner2.jpg',
-      link: '/Css_Flex',
-      type: 'Css To Css3'
-    },
-    {
-      name: 'tab1-3',
-      url: './static/images/banner3.jpg',
-      link: 'tab1-3link',
-
-
-    },
-    {
-      name: 'tab1-1',
-      url: './static/images/banner.jpg',
-      link: 'tab1-1link',
-
-
-    },
-    {
-      name: 'tab1-2',
-      url: './static/images/banner2.jpg',
-      link: 'tab1-2link',
-
-
-    },
-    {
-      name: 'tab1-3',
-      url: './static/images/banner3.jpg',
-      link: 'tab1-3link',
-
-
-    },
-    {
-      name: 'tab1-1',
-      url: './static/images/banner.jpg',
-      link: 'tab1-1link',
-
-
-    },
-    {
-      name: 'tab1-2',
-      url: './static/images/banner2.jpg',
-      link: 'tab1-2link',
-
-
-    },
-    {
-      name: 'tab1-3',
-      url: './static/images/banner3.jpg',
-      link: 'tab1-3link',
-
-
-    },
-    {
-      name: 'tab1-2',
-      url: './static/images/banner2.jpg',
-      link: 'tab1-2link',
-
-
-    },
-    {
-      name: 'tab1-3',
-      url: './static/images/banner3.jpg',
-      link: 'tab1-3link',
-
-
-    },
-    {
-      name: 'tab1-1',
-      url: './static/images/banner.jpg',
-      link: 'tab1-1link',
-
-
-    },
-    {
-      name: 'tab1-2',
-      url: './static/images/banner2.jpg',
-      link: 'tab1-2link',
-
-
-    },
-    {
-      name: 'tab1-3',
-      url: './static/images/banner3.jpg',
-      link: 'tab1-3link',
-
-
-    },
-    {
-      name: 'tab1-1',
-      url: './static/images/banner.jpg',
-      link: 'tab1-1link',
-
-
-    },
-    {
-      name: 'tab1-2',
-      url: './static/images/banner2.jpg',
-      link: 'tab1-2link',
-
-
-    },
-    {
-      name: 'tab1-3',
-      url: './static/images/banner3.jpg',
-      link: 'tab1-3link',
-
-
-    },
-    {
-      name: 'tab1-2',
-      url: './static/images/banner2.jpg',
-      link: 'tab1-2link',
-
-
-    },
-    {
-      name: 'tab1-3',
-      url: './static/images/banner3.jpg',
-      link: 'tab1-3link',
-
-
-    },
-    {
-      name: 'tab1-1',
-      url: './static/images/banner.jpg',
-      link: 'tab1-1link',
-
-
-    },
-    {
-      name: 'tab1-2',
-      url: './static/images/banner2.jpg',
-      link: 'tab1-2link',
-
-
-    },
-    {
-      name: 'tab1-3',
-      url: './static/images/banner3.jpg',
-      link: 'tab1-3link',
-
-
-    },
-    {
-      name: 'tab1-1',
-      url: './static/images/banner.jpg',
-      link: 'tab1-1link',
-
-
-    },
-    {
-      name: 'tab1-2',
-      url: './static/images/banner2.jpg',
-      link: 'tab1-2link',
-
-
-    },
-    {
-      name: 'tab1-3',
-      url: './static/images/banner3.jpg',
-      link: 'tab1-3link',
-
-
-    }
+    name: 'js限制只输入数字和点',
+    url: './static/images/demo/filterNumber.jpg',
+    link: '/filterNumber',
+    type: 'Javascript And Vue'
+  },
+  {
+    name: 'Css_Grid基本布局',
+    url: './static/images/demo/Css_Grid.jpg',
+    link: '/Css_Grid',
+    type: 'Css To Css3'
+  },
+  {
+    name: 'Css_Flex基本布局',
+    url: '',
+    link: '/Css_Flex',
+    type: 'Css To Css3'
+  },
+  {
+    name: 'JS数据交互',
+    url: '',
+    link: '/JS_DataInter',
+    type: 'Javascript And Vue',
+  },
+  // {
+  //   name: 'Python',
+  //   url: "",
+  //   link: '/PY_Document',
+  //   type: 'Python',
+  // },
+  {
+    name: 'JS_nodejs相关',
+    url: "",
+    link: '/JS_nodejs',
+    type: 'Javascript And Vue'
+  },
+  {
+    name: 'Linux 资料',
+    url: "",
+    link: '/Linux',
+    type: 'Other'
+  },
   ]
 }
+let urls = [
+  '1.jpg',
+  '2.jpg',
+  '3.jpg',
+  '4.jpg',
+  '5.jpg',
+  '6.jpg',
+  '7.jpg',
+  '8.jpg',
+  '9.jpg',
+  '10.jpg',
+  '11.jpg',
+  '12.jpg',
+]
+let types = [
+  "Javascript And Vue",
+  "Css To Css3",
+  "Html To Html5",
+  "Python",
+  "Other",
+]
+function seturl() {
+  let wartLength =100;
+  let addcount = wartLength-datas.Data.length;
+  let datalength = datas.Data.length;
+
+  if (datas.Data.length < wartLength) {
+    for (let i = 0; i < addcount; i++) {
+      datas.Data.push(
+        {
+          name: `(${i+datalength +1})、案例不够,模板来代`,
+          url: '',
+          link: '404.thml',
+        },
+      )
+    }
+  }
+  datas.Data.map(function (item, index) {
+    if (!item.url) {
+      //Math.floor(Math.random()*n) //获取0到n的随机整数
+      item.url = './static/images/defuImg/' + urls[Math.floor(Math.random() * urls.length)];
+    }
+    if (!item.type) {
+      item.type = types[Math.floor(Math.random() * types.length)];
+    }
+  })
+
+}
+seturl();
+export default datas;
