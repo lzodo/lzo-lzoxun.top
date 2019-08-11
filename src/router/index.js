@@ -9,7 +9,7 @@ Vue.use(Router)
 
 const route = [{
     path: '/',
-    component: resolve => require(['@/controller/Hone_views/hv_index'], resolve),
+component: resolve => require(['@/controller/Hone_views/hv_index'], resolve),
     children:[
       {
         path:'/',
@@ -71,8 +71,8 @@ const route = [{
       {path:'/JS_DataInter',components: {CvViews3: resolve => require(['@/controller/Case_views/demo/js/JS_DataInter'],resolve)}},
       {path:'/JS_nodejs',components: {CvViews3: resolve => require(['@/controller/Case_views/demo/js/JS_nodejs'],resolve)}},
       {path:'/PY_Document',components: {CvViews3: resolve => require(['@/controller/Case_views/demo/python/PY_Document'],resolve)}},
-      {path:'/Linux',components: {CvViews3: resolve => require(['@/controller/Case_views/demo/Other/Linux'],resolve)}},
-      {path:'/question',components: {CvViews3: resolve => require(['@/controller/Case_views/demo/Other/question'],resolve)}},
+      {path:'/Linux',components: {CvViews3: resolve => require(['@/controller/Case_views/demo/other/Linux'],resolve)}},
+      {path:'/question',components: {CvViews3: resolve => require(['@/controller/Case_views/demo/other/question'],resolve)}},
     ]
   },
   {
