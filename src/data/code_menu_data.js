@@ -41,6 +41,12 @@ let datas = {
     link: '/Linux',
     type: 'Other'
   },
+  {
+    name: '面试题',
+    url: "",
+    link: '/question',
+    type: 'Other'
+  },
   ]
 }
 let urls = [

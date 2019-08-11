@@ -72,6 +72,7 @@ const route = [{
       {path:'/JS_nodejs',components: {CvViews3: resolve => require(['@/controller/Case_views/demo/js/JS_nodejs'],resolve)}},
       {path:'/PY_Document',components: {CvViews3: resolve => require(['@/controller/Case_views/demo/python/PY_Document'],resolve)}},
       {path:'/Linux',components: {CvViews3: resolve => require(['@/controller/Case_views/demo/Other/Linux'],resolve)}},
+      {path:'/question',components: {CvViews3: resolve => require(['@/controller/Case_views/demo/Other/question'],resolve)}},
     ]
   },
   {
