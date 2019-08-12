@@ -47,6 +47,12 @@ let datas = {
     link: '/question',
     type: 'Other'
   },
+  {
+    name: 'vim',
+    url: "",
+    link: '/vim',
+    type: 'Other'
+  },
   ]
 }
 let urls = [

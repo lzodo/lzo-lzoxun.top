@@ -73,6 +73,7 @@ component: resolve => require(['@/controller/Hone_views/hv_index'], resolve),
       {path:'/PY_Document',components: {CvViews3: resolve => require(['@/controller/Case_views/demo/python/PY_Document'],resolve)}},
       {path:'/Linux',components: {CvViews3: resolve => require(['@/controller/Case_views/demo/other/Linux'],resolve)}},
       {path:'/question',components: {CvViews3: resolve => require(['@/controller/Case_views/demo/other/question'],resolve)}},
+      {path:'/vim',components: {CvViews3: resolve => require(['@/controller/Case_views/demo/other/vim'],resolve)}},
     ]
   },
   {
