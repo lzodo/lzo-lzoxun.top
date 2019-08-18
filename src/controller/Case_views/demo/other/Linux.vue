@@ -85,6 +85,11 @@
 
          只有root有权限
      </pre>
+     <div class='h1'>$ 配置文件</div>
+     <pre class="docbody">
+         /etc/apt/sources.list  //设置源配置文件
+         /usr/share/X11/xkb/keycodes/evdev //键位设置文件
+     </pre>
     </div>
   </div>
 </template>
