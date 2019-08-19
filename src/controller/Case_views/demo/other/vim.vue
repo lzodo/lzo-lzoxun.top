@@ -13,9 +13,11 @@
              d 删除 
              c 修改(删除并进入插入模式)  ci" 会删除"aaa bbb cc ddd" 引号里所有的字符
              y 复制
-             f 查找  
+             f 查找 3fl(第三个l的位置) F 反向 ,t T 是查找到目标前一个字符，通过 ";" 命令重复，"," 命令则用于反向重复
              d + ←→删除光标←→字符（d +3←）、dd删除一行（其实是剪切，p粘贴）
              y+ ←→复制光标←→字符（y+3←）
+             % 跳到但前所在一对符号的另一边，如果但前不是有用的字符 先正向查找再跳(n%跳到文档相应位置)
+             / ? n N * # 查找相关符号
          </span>
       </pre>
       <div class='h1'>$ .vimrc</div>
@@ -69,14 +71,13 @@
             yy：将当前URL复制到剪贴板
             gf：将焦点循环到下一帧
             i：进入插入模式
-                     </span>
-                  </pre>
-                </div>
-              </div>
-            </template>
-            
-            <script>
-            export default {
+         </span>
+      </pre>
+    </div>
+  </div>
+</template>
+<script>
+export default {
   name: "Linux",
   data() {
     return {};
@@ -91,13 +92,3 @@
 <style lang="scss" scoped>
 
 </style>
-
-============================
-<script>
-export dlt {
-  name: "Linux",
-  data() {
-    return {};
-  },
-  methods: {},
-  mounted() {

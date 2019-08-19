@@ -30,7 +30,7 @@ import 'highlight.js/styles/atom-one-dark.css'
 Vue.use(VueHighlightJS)
 
 
-Vue.use(Print) 
+Vue.use(Print); 
 
 Vue.use(Element)
 
