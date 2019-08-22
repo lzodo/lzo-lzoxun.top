@@ -25,6 +25,11 @@
              % 跳到但前所在一对符号的另一边，如果但前不是有用的字符 先正向查找再跳(n%跳到文档相应位置)
              / ? n N * # 查找相关符号
              zz  光标位置定位到屏幕中央 zt上  zb下
+             
+             文本对象: iw 一个单词
+                       aw 包括空白符号单词
+                       is 一个句子
+                       as 包括后面空白符号的句子
          </span>
       </pre>
       <div class='h1'>$ 好用的</div>
@@ -32,6 +37,7 @@
          yiw - viw -  p       粘贴并替换一个单词
          yiw w w - viw w  - p 以任意单词数目替换任意单词数目
          yi"   复制"号里的所有    
+         yaw 复制一整个单词(光标在中间也可以aw==a word)
       </pre>
       <div class='h1'>$ .vimrc</div>
       <pre class="docbody">
