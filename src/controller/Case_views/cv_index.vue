@@ -123,6 +123,7 @@ export default {
     })
 
     if(this.$route.path == '/CvIndex'){
+      console.log(this.$route.path)
       that.isShowMenu = true;
     }
 
@@ -161,7 +162,5 @@ export default {
     padding: 10px;
   }
 }
-.CvViews3{
-  padding-top: 1px;
-}
+
 </style>

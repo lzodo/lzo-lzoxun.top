@@ -8,9 +8,9 @@ import Modeules from '../controller/index'
 Vue.use(Router)
 
 const route = [{
-    path: '/',
-component: resolve => require(['@/controller/Hone_views/hv_index'], resolve),
-    children:[
+  path: '/',
+  component: resolve => require(['@/controller/Hone_views/hv_index'], resolve),
+  children: [
       {
         path:'/',
         components: {
