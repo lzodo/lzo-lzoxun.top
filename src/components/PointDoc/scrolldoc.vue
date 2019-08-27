@@ -8,6 +8,7 @@
             </div>
         </div> 
         <ul class='nav' :style="{height:docHeight+'px'}">
+            <li>目录</li>
             <li class="nav1" v-for="(item, index) in navList" :key="index" @click="jump(index)"
                 :class="index==0?'current':''">{{item}}</li>
         </ul>
@@ -20,27 +21,15 @@ export default {
         docHeight:{
             type:Number,
             default:500
-        }
+        },
+        list:{
+            type:Array,
+            default:[]
+        },
     },
     data(){
         return {
             scroll: '',
-            list: [{
-                name: "第一条",
-                backgroundcolor: "#90B2A3"
-            }, {
-                name: "第二条",
-                backgroundcolor: "#A593B2"
-            }, {
-                name: "第三条",
-                backgroundcolor: "#A7B293"
-            }, {
-                name: "第四条",
-                backgroundcolor: "#0F2798"
-            }, {
-                name: "第五条",
-                backgroundcolor: "#0A464D"
-            }],
             navList: []
         }
     },
@@ -98,6 +87,7 @@ export default {
     .container{
         width: 100%;
         height: 100%;
+        padding-right: 200px;
     }
     .nav{
         width: 200px;
@@ -105,6 +95,8 @@ export default {
         position: fixed;
         right:0;
         bottom:0;
+        padding: 10px;
+        cursor: pointer;
     }
 }
 .section{
