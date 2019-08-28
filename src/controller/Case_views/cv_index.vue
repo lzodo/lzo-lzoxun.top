@@ -20,7 +20,10 @@
           </ul>
           <div ref ='det_menu' class="det_menu" :style="{height:MenuHeight + 'px'}" v-show='isShowMenu'>
             <div class="det_menu_cen">
-              <span class="title"><span class="iconfont" style="margin-right: 5px;">&#xe602;</span>{{thisMenuName}}</span>
+              <span class="title">
+                <span class="iconfont" style="margin-right: 5px;">&#xe602;</span>{{thisMenuName}}
+                  <el-button size='mini' style='float:right;margin:0 5px 0 0' @click='closemenu'>关闭</el-button>
+                </span>
               <ul class="nav_menu">
                 <li class="item" v-for="(item, index) in detMenuData" :key="item.id" v-if="detMenuType == 'All Codes'?true:item.type ==detMenuType">
                   <div class="item_cen" :title="item.name" @click='GoModo($event,item.link)'>
@@ -100,6 +103,9 @@ export default {
     Sticky,
   },
   methods: {
+    closemenu(){
+      this.isShowMenu = false;
+    },
     GoModo(e,type){
       let that = this;
       $(e.target).siblings('.mark').show();
@@ -120,19 +126,20 @@ export default {
   
     $('.CaseType li').click(function(e) {
       $(e.target).addClass('active').siblings('li').removeClass('active');
+      that.isShowMenu = true;
     })
 
-    if(this.$route.path == '/CvIndex'){
-      console.log(this.$route.path)
-      that.isShowMenu = true;
-    }
+    // if(this.$route.path == '/CvIndex'){
+    //   console.log(this.$route.path)
+    //   that.isShowMenu = true;
+    // }
 
     this.thisMenuName = this.menuData[0].name;
     $('.CaseType li').first().addClass('active');
 
     $('.CaseType li').click(function(e, index) {
       that.thisMenuName = that.menuData[$(e.target).index()].name;
-      that.isShowMenu = true;
+      // that.isShowMenu = true;
       that.detMenuType = that.thisMenuName;
       let typeCount = 0;
 

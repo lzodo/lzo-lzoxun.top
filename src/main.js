@@ -24,9 +24,11 @@ import md5 from 'md5'
 
 import VueGlobalTool from './utilities/VueGlobalTool'
 
-//代码高亮
+// 代码高亮
 import VueHighlightJS from 'vue-highlightjs'
-import 'highlight.js/styles/atom-one-dark.css'
+//  import 'highlight.js/styles/default.css'
+import 'highlight.js/styles/routeros.css'
+//  import 'highlight.js/styles/ir-black.css'
 Vue.use(VueHighlightJS)
 
 
