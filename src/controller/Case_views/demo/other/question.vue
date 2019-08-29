@@ -9,67 +9,71 @@ export default {
    name:'question',
    data(){
       return {
-pageHeight:window.innerHeight,
+           pageHeight:window.innerHeight,
 //list height
 lists: [
 {
       name: "第一条",
+      note:'这是一个描述信息,这真的只是一个描述信息啊啊没有其他作用的啊啊啊啊啊啊啊 啊啊啊啊。。。',
+      links:[
+          {title:'相关链接',val:[
+                {name:'百度',href:'http://www.baidu.com'},
+                {name:'Github',href:'https://github.com'}
+             ]
+          },   
+          {title:'其他链接',val:[
+                {name:'百度2',href:'http://www.baidu.com'},
+                {name:'Github2',href:'https://github.com'}
+             ]
+          },
+      ],
       jsCode:`
       let a = '5';
-         //ccckdfjalfj
+         //备注
       let b = '3';
       `,
-      htmlCode:`
-      <html>
-            <body>body</body>
-      </html>
-      `,
-      scssCode:`
-      body{
-          background:#f00;
-          font-size:56px;
-          .class{
-              color:#f0f;
-          }
-      }
-      `,
-      backgroundcolor: "#90B2A3"
+      
+      listLinks:[
+      
+      ],
+      twoList:[
+
+      ],
+      warning:[
+         "这是第一条特别提示","这是第二条特别提示","还有第三天提别提示第三条是如果很长的那种"
+      ]
 }, {
       name: "第二条",
-      backgroundcolor: "#A593B2"
+      tableStyle:[
+         {title:'vue 这里如果有汉字',val:[
+             {obj:'a 如果',note:'zhe shi a'},
+             {obj:'b 这里也有行子',note:'zhe shi b'},
+             {obj:'c',note:'zhe shi c'},
+             {obj:'dfdsafs',note:'zhe shi d'},
+         ]},
+      ],
 }, {
       name: "第三条",
-      backgroundcolor: "#A7B293"
 }, {
       name: "第四条",
-      backgroundcolor: "#0F2798"
 }, {
       name: "如果是非常长的一个标题会怎样",
-      backgroundcolor: "#0A464D"
 }, {
       name: "第二条",
-      backgroundcolor: "#A593B2"
 }, {
       name: "第三条",
-      backgroundcolor: "#A7B293"
 }, {
       name: "第四条",
-      backgroundcolor: "#0F2798"
 }, {
       name: "第二条",
-      backgroundcolor: "#A593B2"
 }, {
       name: "第三条",
-      backgroundcolor: "#A7B293"
 }, {
       name: "第四条",
-      backgroundcolor: "#0F2798"
 }, {
       name: "第二条",
-      backgroundcolor: "#A593B2"
 }, {
       name: "第三条",
-      backgroundcolor: "#A7B293"
 }
 ],
       }
