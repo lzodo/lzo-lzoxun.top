@@ -4,8 +4,19 @@
             <div class="wrapper">
                 <div class="section" v-for="(item, index) in list" :key="index">
                     <h2 class="sectitle">{{(index+1) + '、' + item.name}}</h2>
+                    <div class="bannerimg" v-show='item.img'>
+                        <img :src='item.img' />
+                    </div>
                     <div class="secnote" v-show="item.note">{{item.note}}</div>
 
+                    <div class="secimgswarp" v-show='item.imgs'>
+                        <div class="secimgs" v-for='(imitem,imindex) in item.imgs' :key='imindex'>
+                            <div class="pic">
+                                <img :src="imitem.src" :class='imitem.cla'>
+                            </div>
+                            <div class="name">{{imitem.name}}</div>
+                        </div>
+                    </div>
                     <pre v-highlightjs v-show='item.jsCode'>
                         <span class='codenote'>javascript Code</span>
                         <code class="javascript" spellcheck="true">{{item.jsCode}}</code>
@@ -264,6 +275,48 @@ export default {
                     margin-right: 10px;
                 }
             } 
+        }
+        .bannerimg{
+            width: 100%;
+            max-height:300px;
+            overflow: hidden;
+            margin: 10px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            img{
+                width: 100%;
+            }
+        }
+        .secimgswarp{
+            width: 100%;
+            margin: 10px 0;
+            .secimgs{
+                width: 30%;
+                height:230px;
+                float:left;
+                border-right: 5px solid #fff;
+                position: relative;
+                .pic{
+                    height: 200px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+                .name{
+                   position: absolute;
+                   bottom: 0;
+                   left:0;
+                   width:100%;
+                   height:30px;
+                   line-height: 30px;
+                   text-align: center;
+                   background:#f0f0f0;
+                }
+                .AllHeight{
+                    height:100%;
+                }
+            }
         }
         .warning{
             width: 100%;
