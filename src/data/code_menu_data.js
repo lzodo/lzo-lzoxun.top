@@ -6,6 +6,12 @@ let datas = {
     type: 'Javascript And Vue'
   },
   {
+    name: 'vue题型',
+    url: "",
+    link: '/question?pagtag=page_vue_topic',
+    type: 'Javascript And Vue'
+  },
+  {
     name: 'Css_Grid基本布局',
     url: './static/images/demo/Css_Grid.jpg',
     link: '/Css_Grid',
@@ -23,12 +29,6 @@ let datas = {
     link: '/JS_DataInter',
     type: 'Javascript And Vue',
   },
-  // {
-  //   name: 'Python',
-  //   url: "",
-  //   link: '/PY_Document',
-  //   type: 'Python',
-  // },
   {
     name: 'JS_nodejs相关',
     url: "",
@@ -42,9 +42,15 @@ let datas = {
     type: 'Other'
   },
   {
-    name: '面试题',
+    name: '文档组件使用方式',
     url: "",
-    link: '/question',
+    link: '/question?pagtag=page_pointdoc',
+    type: 'Other'
+  },
+  {
+    name: '文档组件测试',
+    url: "",
+    link: '/question?pagtag=page_test',
     type: 'Other'
   },
   {

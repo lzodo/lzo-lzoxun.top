@@ -129,6 +129,7 @@ export default {
         },
         getcatal(){
             let that = this;
+            that.navList = [];
             that.list.map(function(item,index){
                 that.navList.push((index+1) + '、' +item.name);
             })

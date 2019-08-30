@@ -42,7 +42,11 @@
       </sticky>
       <!-- <transition :duration="0"> -->
       <div class="CvViews3">
-        <router-view class='child-view' name='CvViews3'></router-view>
+
+        <keep-alive>
+          
+           <router-view class='child-view' name='CvViews3'></router-view>
+        </keep-alive>
       </div>
     <!--   </transition> -->
     </div>
