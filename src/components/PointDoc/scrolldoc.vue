@@ -17,18 +17,10 @@
                             <div class="name">{{imitem.name}}</div>
                         </div>
                     </div>
-                    <pre v-highlightjs v-show='item.jsCode'>
-                        <span class='codenote'>javascript Code</span>
-                        <code class="javascript" spellcheck="true">{{item.jsCode}}</code>
-                    </pre>
-                    <pre v-highlightjs v-show='item.cssCode'>
-                        <code class="css">{{item.cssCode}}</code>
-                    </pre>
-                    <pre v-highlightjs v-show='item.scssCode'>
-                        <code class="scss">{{item.scssCode}}</code>
-                    </pre>
-                    <pre v-highlightjs v-show='item.htmlCode'>
-                        <code class="html">{{item.htmlCode}}</code>
+                    
+                    <pre v-highlightjs v-show='item.jsCode' v-for='(citem,cindex) in item.jsCode' :key='cindex' >
+                        <span class='codenote'>{{citem.lang}} Code</span>
+                        <code :class="citem.lang">{{citem.code}}</code>
                     </pre>
 
                     <div class="tableStyle" v-show='item.tableStyle' v-for='(titem,index) in item.tableStyle' :key='index'>
@@ -41,6 +33,12 @@
                         </ul>
                     </div>
 
+                    <div class='warning' v-show="item.warning">
+                        <div v-for="(witem,index) in item.warning" :key='index'>
+                            <span class='red bold'>*</span>{{witem}}
+                        </div>
+                    </div>
+
                     <div class="seclinks" v-show='item.links'>
                         <div class='linkmodo' v-for='(ilinks,index) in item.links' :key='index'>
                             <div class="title">{{ilinks.title}} : </div>
@@ -50,11 +48,6 @@
                         </div>
                     </div>
                     
-                    <div class='warning' v-show="item.warning">
-                        <div v-for="(witem,index) in item.warning" :key='index'>
-                            {{witem}}
-                        </div>
-                    </div>
                     
                 </div>
                 <!-- <slot></slot> -->
@@ -133,20 +126,26 @@ export default {
                     break;
                 }
             }
+        },
+        getcatal(){
+            let that = this;
+            that.list.map(function(item,index){
+                that.navList.push((index+1) + '、' +item.name);
+            })
         }
     },
     watch: {
         scroll: function () {
             this.loadSroll()
         },
+        list:function(){
+            this.getcatal(); 
+        },
     },
     mounted() {
-        window.addEventListener('scroll', this.dataScroll);
         let that = this;
-        that.list.map(function(item,index){
-            that.navList.push((index+1) + '、' +item.name);
-        })
-
+        window.addEventListener('scroll', this.dataScroll);
+        this.getcatal();
     }
 }
 
@@ -391,6 +390,14 @@ export default {
         }
         
     }
+}
+.red{
+    color:#f00;
+}
+.bold{
+    font-weight: bold;
+    display: inline-block;
+    padding: 0 5px;
 }
 //highlightjs 样式
 .hljs {
