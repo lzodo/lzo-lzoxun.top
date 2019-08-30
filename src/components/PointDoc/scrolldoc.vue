@@ -32,6 +32,16 @@
                             </li>
                         </ul>
                     </div>
+                    <div class="tosumup" v-show='item.tosumup'>
+                        <div class='tosumupitem' v-for="(tsitem,tsindex) in item.tosumup" :key='tsindex'>
+                            ({{tsindex+1}})&nbsp;&nbsp;{{tsitem}}
+                        </div>
+                    </div>
+                    <div class="detailed" v-show='item.detailed'>
+                        <div class='detaileditem' v-for="(deitem,deindex) in item.detailed" :key='deindex'>
+                            ({{deindex+1}})&nbsp;&nbsp;{{deitem}}
+                        </div>
+                    </div>
 
                     <div class='warning' v-show="item.warning">
                         <div v-for="(witem,index) in item.warning" :key='index'>
@@ -319,7 +329,15 @@ export default {
                 }
             }
         }
-        .warning{
+        // .tosumup{
+        //     width: 100%;
+        //     min-height: 50px;
+        //     padding: 10px 20px;
+        //     font-size: 15px;
+        //     line-height: 25px;
+
+        // }
+        .warning,.tosumup,.detailed{
             width: 100%;
             min-height: 50px;
             padding: 10px 20px;
@@ -329,6 +347,29 @@ export default {
             margin: 10px 0;
             border-left: 5px solid #ff6666;
             position: relative;
+            letter-spacing: 2px;
+            &.tosumup{
+                border-left-color: #3CB371;
+                .tosumupitem{
+                    margin-bottom: 5px;
+                }
+            }
+            &.tosumup:before{
+                content:'总';
+                background: #3CB371;
+                font-size: 11px;
+            }
+            &.detailed{
+               border-left-color:#436EEE;
+               .detaileditem{
+                   margin-bottom: 5px;
+               }
+            }
+            &.detailed:before{
+                content: '详';
+                font-size: 11px;
+                background: #436eee;
+            }
             &:before{
                 content:'!';
                 position: absolute;
