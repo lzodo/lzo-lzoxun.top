@@ -32,7 +32,7 @@ let datas = {
             twoList: [
 
             ],
-            img: 'http://pic33.nipic.com/20131007/13639685_123501617185_2.jpg',
+            //img: 'http://pic33.nipic.com/20131007/13639685_123501617185_2.jpg',
             imgs: [
                 { name: '加载 图一', src: '/static/images/loading.gif' },
                 { name: '加载 图一', src: '/static/images/preview2.gif', cla: 'AllHeight' },

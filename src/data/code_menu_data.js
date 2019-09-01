@@ -1,14 +1,27 @@
 let datas = {
-  Data: [{
-    name: 'js限制只输入数字和点',
-    url: './static/images/demo/filterNumber.jpg',
-    link: '/filterNumber',
-    type: 'Javascript And Vue'
-  },
+ Data: [
   {
     name: 'vue题型',
     url: "",
     link: '/question?pagtag=page_vue_topic',
+    type: 'Javascript And Vue'
+  },
+  {
+    name: 'js题型',
+    url: "",
+    link: '/question?pagtag=page_js_topic',
+    type: 'Javascript And Vue'
+  },
+  {
+    name: '前端所有题型',
+    url: "",
+    link: '/question?pagtag=page_all_topic',
+    type: 'All Codes'
+  },
+  {
+    name: 'vue util',
+    url: "",
+    link: '/question?pagtag=page_vue_util',
     type: 'Javascript And Vue'
   },
   {
@@ -42,15 +55,9 @@ let datas = {
     type: 'Other'
   },
   {
-    name: '文档组件使用方式',
+    name: '文档组件说明',
     url: "",
     link: '/question?pagtag=page_pointdoc',
-    type: 'Other'
-  },
-  {
-    name: '文档组件测试',
-    url: "",
-    link: '/question?pagtag=page_test',
     type: 'Other'
   },
   {

@@ -64,7 +64,6 @@ const route = [{
     name: 'CvIndex',
     component: resolve => require(['@/controller/Case_views/cv_index'], resolve),
     children:[
-      {path:'/filterNumber',components: {CvViews3: resolve => require(['@/controller/Case_views/demo/js/filterNumber'],resolve)}},
       {path:'/Css_Grid',components: {CvViews3: resolve => require(['@/controller/Case_views/demo/css/Css_Grid'],resolve)}},
       {path:'/Css_Flex',components: {CvViews3: resolve => require(['@/controller/Case_views/demo/css/Css_Flex'],resolve)}},
       {path:'/Css_Flex',components: {CvViews3: resolve => require(['@/controller/Case_views/demo/css/Css_Flex'],resolve)}},

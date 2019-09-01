@@ -18,10 +18,6 @@
                         </div>
                     </div>
                     
-                    <pre v-highlightjs v-show='item.jsCode' v-for='(citem,cindex) in item.jsCode' :key='cindex' >
-                        <span class='codenote'>{{citem.lang}} Code</span>
-                        <code :class="citem.lang">{{citem.code}}</code>
-                    </pre>
 
                     <div class="tableStyle" v-show='item.tableStyle' v-for='(titem,index) in item.tableStyle' :key='index'>
                         <div class="tabtitle">{{titem.title}}</div>
@@ -48,6 +44,11 @@
                             <span class='red bold'>*</span>{{witem}}
                         </div>
                     </div>
+
+                    <pre v-highlightjs v-show='item.jsCode' v-for='(citem,cindex) in item.jsCode' :key='cindex' >
+                        <span class='codenote'>{{citem.lang}} Code</span>
+                        <code :class="citem.lang">{{citem.code}}</code>
+                    </pre>
 
                     <div class="seclinks" v-show='item.links'>
                         <div class='linkmodo' v-for='(ilinks,index) in item.links' :key='index'>
@@ -301,6 +302,7 @@ export default {
         .secimgswarp{
             width: 100%;
             margin: 10px 0;
+            height:230px;
             .secimgs{
                 width: 30%;
                 height:230px;
