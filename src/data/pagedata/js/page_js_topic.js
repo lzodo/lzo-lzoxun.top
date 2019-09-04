@@ -1,6 +1,20 @@
 let datas = {
     Data: [
        {
+            name:"301重定向与302的差别,与应用场景",
+            type:"jc",
+            tosumup:[
+            '301 永久重定向',
+            '302 临时重定向',
+            '301应用场景: 域名到期不想继续用这个,换了地址',
+            '302应用场景: 做活动时候,从首页跳到活动页面'
+            ],
+            jsCode:[{lang:'javascript',code:`
+            
+                `}
+            ]
+       },
+       {
             name:"事件对象位置坐标属性",
             type:'jc',
             jsCode:[{lang:'javascript',code:`
