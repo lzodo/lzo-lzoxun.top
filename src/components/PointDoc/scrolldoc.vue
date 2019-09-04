@@ -67,7 +67,7 @@
         <div class='nav' :style="{height:docHeight+'px'}">
             <ul class="scronav" :style="{top:scrollnavtop + 'px'}">
                 <li>目录</li>
-                <li class="nav1" :title='item' v-for="(item, index) in navList" :key="index" @click="jump(index)"
+                <li class="scroitem" :title='item' v-for="(item, index) in navList" :key="index" @click="jump(index)"
                     :class="index==0?'current':''">
                     <span class='beforeShape'></span>
                     <span class="navfont">{{item}}</span>
@@ -121,7 +121,7 @@ export default {
         },
         loadSroll: function () {
             var self = this;
-            var $navs = $(".nav1");
+            var $navs = $(".scroitem");
             console.log($navs);
             var sections = document.getElementsByClassName('section');
             console.log(sections);
@@ -187,6 +187,9 @@ export default {
             position: absolute;
             left: 10px;
             top:-100px;
+            li{
+                width: 100%;
+            }
         }
     }
     .section{
@@ -388,7 +391,7 @@ export default {
         }
             
     }
-    .nav1 {
+    .scroitem {
         display: block;
         font-weight: 600;
         color: #000;

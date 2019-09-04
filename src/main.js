@@ -28,7 +28,6 @@ import VueGlobalTool from './utilities/VueGlobalTool'
 import VueHighlightJS from 'vue-highlightjs'
 //  import 'highlight.js/styles/default.css'
 import 'highlight.js/styles/routeros.css'
-//  import 'highlight.js/styles/ir-black.css'
 Vue.use(VueHighlightJS)
 
 
