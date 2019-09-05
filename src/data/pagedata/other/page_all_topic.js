@@ -2,6 +2,25 @@
 let datas = {
     Data: [
         {
+            name:'单多行溢出省略号',
+            jsCode:[{lang:'css',code:`
+            .div{   
+                /*多行溢出省略号显示 不支持火狐*/
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical;
+                
+                /*单行*/
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space:nowrap;
+            }
+                `}
+            ]
+        },
+        {
             name:"doctype",
             type:"css",
             note:"htm中doctype标签是一种标准通用标记语言的文档类型声明，它的目的是要告诉标准通用标记语言解析器，它应该使用什么样的文档类型定义（DTD）来解析文档。 主要分成严格版本,过滤版本,基于框架的html版本等",
@@ -53,6 +72,29 @@ let datas = {
                 '最原始的解决方案:在所有子元素下方新建一个div，给该元素设置样式clear:both;',
                 '其他的解决方案:给父级元素设置overflow:hidden;',
                 '常用的解决方案:父元素:after{content:" ";clear:both;display:table;}',
+            ],
+            jsCode:[{lang:'css',code:`
+            .clearfix{  /*给浮动元素的父级加*/
+                & : before,
+                & : after {
+                    display:block;
+                    clear:both;
+                    content:"";
+                    visibility:hidden;
+                    height:0
+                }
+                & : after {
+                    clear: both;
+                }
+            }
+
+            .clearfix : after{
+                    content:" ";
+                    clear:both;
+                    display:table;
+                }
+            }
+                `}
             ]
         },
         {
@@ -61,41 +103,41 @@ let datas = {
             jsCode:[{lang:'html',code:`
     <!DOCCTYPE html>                                                                                                                                                         
     <html>  
-    ¦   <head>  
-    ¦   ¦   <meta charset="UTF-8">  
-    ¦   ¦   <title></title>  
+        <head>  
+            <meta charset="UTF-8">  
+            <title></title>  
             <style type="text/css">      
-    ¦   ¦   ¦   body {min-width: 550px;}      
-    ¦   ¦   ¦   .col {float: left;}               
-    ¦   ¦   ¦   #main {      
-    ¦   ¦   ¦   ¦   width: 100%;      
-    ¦   ¦   ¦   ¦   height: 200px;      
-    ¦   ¦   ¦   }                 
-    ¦   ¦   ¦   #main-wrap {      
+                body {min-width: 550px;}      
+                .col {float: left;}               
+                #main {      
+                    width: 100%;      
+                    height: 200px;      
+                }                 
+                #main-wrap {      
                     /*这是圣杯和双飞翼最明显的区别，在main内部使用的是margin，而圣杯是直接在container部分使用padding*/              
-    ¦   ¦   ¦   ¦   margin: 0 190px;
-    ¦   ¦   ¦   }      
-    ¦   ¦   ¦   #left,#right {      
-    ¦   ¦   ¦   ¦   width: 190px;      
-    ¦   ¦   ¦   ¦   height: 200px;      
-    ¦   ¦   ¦   }         
-    ¦   ¦   ¦   #left{      
-    ¦   ¦   ¦   ¦   margin-left: -100%;     
-    ¦   ¦   ¦   }             
-    ¦   ¦   ¦   #right {      
-    ¦   ¦   ¦   ¦   margin-left: -190px;    
-    ¦   ¦   ¦   }      
-    ¦   ¦   </style>      
-    ¦   </head>      
-    ¦   <body>      
-    ¦   ¦   <div id="container">      
-    ¦   ¦   ¦   <div id="main" class="col">      
-    ¦   ¦   ¦   ¦   <div id="main-wrap"> #main </div>      
-    ¦   ¦   ¦   </div>      
-    ¦   ¦   ¦   <div id="left" class="col">#left</div>      
-    ¦   ¦   ¦   <div id="right" class="col">#right</div>      
-    ¦   ¦   </div>      
-    ¦   </body>      
+                    margin: 0 190px;
+                }      
+                #left,#right {      
+                    width: 190px;      
+                    height: 200px;      
+                }         
+                #left{      
+                    margin-left: -100%;     
+                }             
+                #right {      
+                    margin-left: -190px;    
+                }      
+            </style>      
+        </head>      
+        <body>      
+            <div id="container">      
+                <div id="main" class="col">      
+                    <div id="main-wrap"> #main </div>      
+                </div>      
+                <div id="left" class="col">#left</div>      
+                <div id="right" class="col">#right</div>      
+            </div>      
+        </body>      
     </html>   
                 `}
             ]

@@ -1,23 +1,155 @@
 let datas = {
     Data: [
-       {
-            name:"301重定向与302的差别,与应用场景",
-            type:"jc",
-            tosumup:[
-            '301 永久重定向',
-            '302 临时重定向',
-            '301应用场景: 域名到期不想继续用这个,换了地址',
-            '302应用场景: 做活动时候,从首页跳到活动页面'
-            ],
-            jsCode:[{lang:'javascript',code:`
-            
+        {  
+            name:'class 封装 拖拽',
+            type:'al',
+            jsCode:[{lang:'html',code:`
+            <body>
+                <div id='modelc' class='model'>
+                    <div id='dialgoObj' class="dialgoObj">拖拽对象</div>
+                    <div id='dialgoObj2' class="dialgoObj">拖拽对象2</div>
+                </div>
+            </body>
+                `},{lang:'javascript',code:`
+            class Dialog {
+                constructor(maskid, dialogid) {
+                    this.isMoving = false //判断鼠标是否是在拖动对象上按下的
+                    this.dialog //定义一个对象容器
+                    this.maskid = maskid //接收maskid
+                    this.dialogid = dialogid //接收拖拽对象id
+
+                    this.startX
+                    this.startY
+                    this.currentX
+                    this.currentY
+                }
+                open() {
+                    let model = document.querySelector('#' + this.maskid);
+                    model.addEventListener('click', this.close.bind(this))
+
+                    this.dialog = document.querySelector('#' + this.dialogid);
+                    this.dialog.addEventListener('click', e => { e.stopPropagation() }) //阻止事件冒泡防止冒到遮罩隐藏了
+
+                    //绑定鼠标在对象上按下，移动抬起要做的事情
+                    this.dialog.addEventListener('mousedown', this.handleMousedown.bind(this))
+                    document.addEventListener('mousemove', this.handleMousemove.bind(this))
+                    document.addEventListener('mouseup', this.handleMouseup.bind(this))
+                }
+                close() {
+                    //取消绑定鼠标在对象上按下，移动抬起要做的事情
+                    this.dialog.removeEventListener('mousedown', this.handleMousedown)
+                    document.removeEventListener('mousemove', this.handleMousemove)
+                    document.removeEventListener('mouseup', this.handleMouseup)
+
+                    document.body.removeChild(document.querySelector('#' + this.maskid)) //移除遮罩
+                }
+                handleMousedown(evnet) {
+                    this.isMoving = true  //鼠标按下
+
+                    //使对象移动后距离左边的距离 = 移动的距离(this.currentX - event.clientX) 加上 本来就距离左边的距离(offsetLeft)
+                    this.startX = event.clientX - this.dialog.offsetLeft;
+                    this.startY = event.clientY - this.dialog.offsetTop;
+                    console.log(this.startX,this.startY)
+
+                }
+                handleMousemove(event) {
+                    if(!this.isMoving){
+                       return;
+                    }
+                    this.currentX = event.clientX;
+                    this.currentY = event.clientY;
+
+                    //计算xy改变的距离 + 鼠标按下时对象左上的距离 
+                    var left = this.currentX - this.startX;
+                    var top = this.currentY - this.startY;
+
+                    // 限制移出可视区
+                    var bodyWidth = document.documentElement.clientWidth || document.body.clientWidth;
+                    var bodyHeight = document.documentElement.clientHeight || document.body.cliengHeight;
+                    if(left <= 0){
+                        left = 0;
+                    }else if(left >= bodyWidth - this.dialog.offsetWidth){
+                        left = bodyWidth - this.dialog.offsetWidth;
+                    }
+                    if(top <= 0){
+                        top = 0;
+                    }else if(top >= bodyHeight - this.dialog.offsetHeight){
+                        top = bodyHeight - this.dialog.offsetHeight
+                    }
+
+                    this.dialog.style.left = left + 'px';
+                    this.dialog.style.top = top + 'px';
+                }
+                handleMouseup(event) {
+                    this.isMoving = false //鼠标抬起
+                    document.removeEventListener('mousemove', this.handleMousemove);
+                    document.removeEventListener('mouseup',this.handleMouseup);
+
+                }
+            }
+            let dialog = new Dialog('modelc', 'dialgoObj')
+            let dialog2 = new Dialog('modelc', 'dialgoObj2')
+            dialog.open()
+            dialog2.open()
+                `},{lang:'css',code:`
+            <style type="text/css">
+            .model {
+                position: fixed;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                background-color: rgba(0, 0, 0, .3);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+            }
+
+            .dialgoObj {
+                padding: 20px;
+                background-color: white;
+                cursor: pointer;
+                position: absolute;
+                left:0;
+                top:0;
+            }
+            </style>
                 `}
             ]
-       },
-       {
-            name:"事件对象位置坐标属性",
+        },
+        {
+            name:'js 内存管理',
             type:'jc',
-            jsCode:[{lang:'javascript',code:`
+            note:'JavaScript是在创建变量（对象，字符串等）时自动进行了分配内存，并且在不使用它们时“自动”释放。 释放的过程称为垃圾回收。 内存生命周期一般都是 分配 执行(读写) 释放三个步骤的',
+            
+        },
+        {
+            name:'js 严格模式',
+            type:'jc',
+            note:"通过 'use strict' 设置严格模式,放在某个作用域最前面",
+            tosumup:[
+              '消除Javascript语法的一些不合理、不严谨之处，减少一些怪异行为;',
+            　　'消除代码运行的一些不安全之处，保证代码运行的安全；',
+            　　'提高编译器效率，增加运行速度；',
+            　　'为未来新版本的Javascript做好铺垫'
+            ],
+        },
+        {
+            name: "301重定向与302的差别,与应用场景",
+            type: "jc",
+            tosumup: [
+                '13250255782',
+                '301 永久重定向',
+                '302 临时重定向',
+                '301应用场景: 域名到期不想继续用这个,换了地址',
+                '302应用场景: 做活动时候,从首页跳到活动页面'
+            ],
+        },
+        {
+            name: "事件对象位置坐标属性",
+            type: 'jc',
+            jsCode: [{ lang: 'javascript', code: `
             event.clientX、event.clientY
 
             // 鼠标相对于浏览器窗口可视区域的X，Y坐标（窗口坐标），可视区域不包括工具栏和滚动条。IE事件和标准事件都定义了这2个属性
@@ -33,10 +165,9 @@ let datas = {
             event.screenX、event.screenY
 
             // 鼠标相对于用户显示器屏幕左上角的X,Y坐标
-                `}
-            ]
-       },
-       {
+                ` }]
+        },
+        {
             name: "箭头函数",
             type: "jc",
             jsCode: [{ lang: 'javascript', code: `
@@ -105,7 +236,7 @@ let datas = {
         {
             name: "数组 sort 排序",
             type: "sf",
-            jsCode:[{lang:'javascript',code:`
+            jsCode: [{ lang: 'javascript', code: `
         /* 一.sort排序规则,return大于0则交换数组相邻2个元素的位置
          *    
          *
@@ -117,7 +248,7 @@ let datas = {
         // 数组
         var arr = [-50,-12,0,1,15,7];
 
-        // 默认法,缺点:只根据首位排序
+        // 默认法,缺点: 根据字符串中字符的UTF-16编码顺序来进行排序
         console.log(arr.sort()); //[-12, -50, 0, 1, 15, 7] 首字母7最大
 
         /*
@@ -155,8 +286,7 @@ let datas = {
             }
         }
         console.log(sortBalls('红蓝蓝黄红黄蓝红红黄红'));
-                `}
-            ]
+                ` }]
         },
         {
             name: "字符串大小写转化 js实现",
@@ -173,16 +303,90 @@ let datas = {
              */
              return res.toUpperCase() === res ? res.toLowerCase() : res.toUpperCase();
 
-             //
-
         })
         console.log(str); //AbCdEf
                 ` }]
         },
         {
+            name: '闭包',
+            type: "jc",
+            note: "两个互相嵌套的函数，内部函数如果被return出来就形成了闭包 或 函数当做子参数传入其他函数中 或者说 闭包就是指有权访问另一个函数作用域中的变量的函数",
+            warning: [
+                '外部可以访问行数内部变量',
+                '同一个闭包赋值给多个变量，彼此都是独立的互不影响',
+                '通常，函数的作用域及其所有变量都会在函数执行结束后被销毁。但是，在创建了一个闭包以后，这个函数的作用域就会一直保存到闭包不存在为止'
+            ],
+            jsCode: [{ lang: 'javascript', code: `
+            // 创建闭包最常见方式，就是在一个函数内部创建另一个函数。下面例子中的 closure 就是一个闭包
+            function test(){
+                var a = 1,b = 2;
+                function closure(){
+                    return a+b;
+                }
+                return closure;
+            }
+
+            // =================================================
+            function makeAdder(x) {
+                return function(y) {
+                    return x + y;
+                };
+            }
+
+            var add5 = makeAdder(5);
+            var add10 = makeAdder(10);
+
+            console.log(add5(2));  // 7
+            console.log(add10(2)); // 12
+
+            // 释放对闭包的引用
+            add5 = null;
+            add10 = null;
+
+            // ====================================================
+            //闭包出来for循环中i的问题
+            var arr = [];
+             for(var i=0;i<4;i++){
+                arr[i] = (function(n){
+                    return function(){
+                        console.log(n);
+                    }
+                })(i)  
+                /*
+                 * 如果不立即执行,那么数组arr[i]只是存了一个函数定义,没有执行就不会取i,等执行的时候去取i已经是最后一个了
+                 * 每次匿名函数表达式执行时, 都会保存一个不同的n ，return语句中的匿名函数每次也引用着不同的n。
+                */
+             }
+             console.log(arr[0]())  
+             console.log(arr[1]())
+             console.log(arr[2]())
+             console.log(arr[3]())
+
+             // ===============================================
+             function fun(n,o){
+                console.log(n,o);
+                return {
+                    fun2: function(m){
+                        return fun(m,n);
+                    }
+                };
+             }
+
+             var a = fun(0);  // ?
+             a.fun2(1);        // ?        
+             a.fun2(2);        // ?
+             a.fun2(3).fun2(4);        // ?
+
+             var b = fun(0).fun2(1).fun2(2).fun2(3);  // ?
+             var c = fun(0).fun2(1);  // ?
+             c.fun2(2);        // ?
+             c.fun2(3); 
+                ` }]
+        },
+        {
             name: "bind方法",
             type: "jc",
-            jsCode:[{lang:'javascript',code:`
+            jsCode: [{ lang: 'javascript', code: `
         let obj = {};
 
         let test = function(){
@@ -195,8 +399,7 @@ let datas = {
 
         test(10,20);  //{}
         test2.bind(obj)();  //{}
-                `}
-            ]
+                ` }]
         },
         {
             name: "call与apply",

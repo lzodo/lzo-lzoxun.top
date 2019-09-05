@@ -141,7 +141,8 @@ let datas = {
             name: "vue中 key 值的作用？",
             note: "当 Vue.js 用 v-for 正在更新已渲染过的元素列表时，它默认用“就地复用”策略。如果数据项的顺序被改变，Vue 将不会移动 DOM 元素到后面使用，而是把当前节点销毁再重建新的节点，使用 key，它会基于 key 的变化重新排列元素顺序，并且会移除 key 不存在的元素",
             tosumup:[
-                'key主要作用是为了高效更新虚拟DOM'
+                'key主要作用是为了高效更新虚拟DOM',
+                'key是给每一个vnode的唯一id,可以依靠key,更准确, 更快的拿到oldVnode中对应的vnode节点'
             ]
         },
     ]
