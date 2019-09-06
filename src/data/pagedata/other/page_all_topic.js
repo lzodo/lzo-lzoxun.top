@@ -21,6 +21,24 @@ let datas = {
             ]
         },
         {
+            name:'CSS文档流 BFC',
+            type:'css',
+            note:'Formatting context(格式化上下文) 是 W3C CSS2.1 规范中的一个概念。它是页面中的一块渲染区域，如body、定位的元素、一块浮动元素或设置display或overflow属性的元素的区域是BFC区域,这些元素或属性就相当于官方说的触发BFC',
+            tosumup:[
+                '只要元素满足下面任一条件即可触发 BFC 特性',
+                'body 根元素',
+                '浮动元素：float 除 none 以外的值',
+                '绝对定位元素：position (absolute、fixed)',
+                'display 为 inline-block、table-cells、flex',
+                'overflow 除了 visible 以外的值 (hidden、auto、scroll)'
+            ],
+            detailed:[
+                '同一个 BFC 下外边距会发生折叠,所以说margin折叠解决方案可以是触发BFC的条件，将两个元素放在不同的BFC容器中,不同方式都带有每种方式的特性',
+                'BFC元素子元素浮动父级不会塌陷,所以处理塌陷可以清除浮动',
+                'BFC 可以阻止元素被浮动元素覆盖等情况'
+            ],
+        },
+        {
             name:"doctype",
             type:"css",
             note:"htm中doctype标签是一种标准通用标记语言的文档类型声明，它的目的是要告诉标准通用标记语言解析器，它应该使用什么样的文档类型定义（DTD）来解析文档。 主要分成严格版本,过滤版本,基于框架的html版本等",

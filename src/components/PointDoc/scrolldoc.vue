@@ -352,7 +352,7 @@ export default {
             margin: 10px 0;
             border-left: 5px solid #ff6666;
             position: relative;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             &.tosumup{
                 border-left-color: #3CB371;
                 .tosumupitem{
