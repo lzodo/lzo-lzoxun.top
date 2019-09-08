@@ -1,6 +1,63 @@
 let datas = {
     Data: [
         {
+            name: 'js 数据类型',
+            type: 'jc',
+            note: '最新的 ECMAScript 标准定义了 8 种数据类型Boolean、Null、Undefined、Number、BigInt、String、Symbol 和 Object,通过typeof 操作数据 返回操作数据的类型(注意typeof null 返回object,函数 返回 function)',
+            tosumup: [
+                'Boolean => true 和 false',
+                'Null => 类型只有一个值： null',
+                'Undefined => 没有被赋值的变量',
+                'Number',
+                'BigInt => 使用 BigInt，您可以安全地存储和操作大整数，甚至可以超过数字的安全整数限制',
+                'String',
+                'Symbol => 符号类型(Symbols)是ECMAScript 第6版新定义的。符号类型是唯一的并且是不可修改的,',
+                'Object'
+            ],
+            links: [
+                {
+                    title: '相关链接',
+                    val: [
+                        { name: 'MDN JavaScript 数据类型', href: 'https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Data_structures' },
+                        { name: 'MDN JavaScript typeof', href: 'https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/typeof' },
+                    ]
+                },
+            ],
+        },
+        {
+            name: '块级作用域',
+            note:'块级作用域 {},如for中的{},if中的,let支持块级作用域就是说{}中用let生明的变量出不来'
+        },
+        {
+            name: 'substring、substr、slice的区别?',
+            jsCode: [{
+                lang: 'javascript', code: `
+            /*
+             * 都是从字符串中提取新的字符,
+             * str.slice(start, end) 提取一个字符串(开始索引,结束索引)
+             * str.substring(start, end) 提取一个字符串,end不支持负数(开始索引,结束索引)
+             * 
+             * str.substr(start, len) 提取一个长度为len的字符串(开始索引,截取长度)
+             * substr 是可以负的
+             * 
+             * slice和substring
+             *    slice的参数可以是负数(从后面开始数)，而substring如果有负值会当作0解析
+             *    slice第一个参数不能比第二个小,substrin可以,放回两个下标之间的字符串
+             * 
+             */
+
+             let str = 'this is a test';
+             str.substring(1,1) // ""  slice 一样
+             
+             str.substring(0,-1) // ""
+             str.slice(0,-1) // this is a tes
+
+             str.substring(4,2) // is
+             str.slice(4,2) // ""
+                `}
+            ]
+        },
+        {
             name:'防抖与节流',
             type:'jc',
             tosumup:[

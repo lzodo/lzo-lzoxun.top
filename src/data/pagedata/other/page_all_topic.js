@@ -2,6 +2,102 @@
 let datas = {
     Data: [
         {
+            name: 'em 与 rem 适配',
+            note: '1em 当前元素的fong-size大小 。 因为html默认字体大小时16px,1rem默认为16px, 当html的font-size大小为屏幕宽度时,1rem就等于屏幕宽度',
+            jsCode: [{
+                lang: 'javascript', code: `
+            /*
+             * 先引入mate
+             * 设置
+             * 获取屏幕区域宽度(把屏幕分成1份,每份的宽度代表1rem)
+             * var width = document.documentElement.clientWidth/1;
+             * 获取html
+             * var html = document.querySelector('html');
+             * 设置字体大小(设置成功后width为1rem的元素就是屏幕宽度了)
+             * html.style.fontSize = width + 'px';
+            */
+            
+            //使用 网上适配翻案
+            //将屏幕等分成 20 份，每份为 1rem
+            //如果设计稿是640,那么 1rem=640px/20=32px , <html>的 font-size为32px 。
+            //使用cssrem插件进行转换 设置px_to_rem值为32（输入640可以转换为20rem）
+            (function () {
+                var html = document.documentElement;
+                function onWindowResize() {
+                    html.style.fontSize = html.getBoundingClientRect().width / 20 + 'px';
+                }
+                window.addEventListener('resize', onWindowResize);
+                onWindowResize();
+            })();
+            
+                `}
+            ]
+            
+        },
+        {
+            name: '1物理像素问题-像素比(dpr) ',
+            note: '像素比 = 物理像素 / css像素,不同屏幕dpr是不一样的,dpr可通过window.devicePixelRatio',
+            jsCode: [{lang: 'javascript', code: `
+            /*
+             *
+             * 移动端首先引入 mate 设置
+             * 设置 initial-scale 缩放比 
+             *     
+             */
+
+             //...........................
+
+            /*
+             * 方案2
+             * 1px下边框
+             */
+            .box{
+                position:relative;
+            }
+            .box:before{
+                content:'',
+                position:absolute;
+                left:0;
+                bottom:0;
+                width:100%;
+                height:1px;
+                background:#000;
+            }
+            @media screen and (-webkit-min-device-pixel-ratio:2){
+                .box:before{
+                    transform: scaleY(.5);
+                }
+            }
+            @media screen and (-webkit-min-device-pixel-ratio:3){
+                .box:before{
+                    transform: scaleY(.33333333333);
+                }
+            }
+
+            //=============================================================
+            .box {
+                position: relative; //必须
+            }
+            .box:before {
+                content: "";
+                width: 200%;
+                height: 200%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                -webkit-transform: scale(.5);
+                -webkit-transform-origin: 0 0;
+                -webkit-box-sizing: border-box;
+                border: 1px solid #ccc;
+
+                padding: 1px;
+                pointer-events: none;
+                border-radius: 8px;
+            }
+             `}
+            ]
+        },
+        {
             name:'单多行溢出省略号',
             jsCode:[{lang:'css',code:`
             .div{   
@@ -77,9 +173,10 @@ let datas = {
             name:"元素居中",
             type:"css",
             tosumup:[
-                '有固定宽高:绝对定位+left:50%+margin-left:负宽度的一半，垂直方式一致',
-                '没固定宽高:绝对定位:上下左右为0+margin:auto;',
-                '或display:flex; align-items:center; justify-content:center;方式,  后两个属性设置的方向根据 flex-directio值的变化而变化',
+                '绝对定位+left:50%+margin-left:负宽度的一半，垂直方式一致',
+                '绝对定位+left:50%+translate(-50%,-50%)',
+                '绝对定位:上下左右为0+margin:auto;',
+                '或剧中元素父级别display:flex; align-items:center(沿着侧轴剧中，默认上到下); justify-content:center(沿着主轴剧中，默认左到右);方式,  后两个属性设置的方向根据 flex-directio值的变化而变化',
             ]
         },
         {
