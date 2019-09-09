@@ -317,6 +317,29 @@ let datas = {
             ` }]
         },
         {
+            name:'数组乱序',
+            type:'sf',
+            jsCode:[{lang:'javascript',code:`
+            var arr = [1,2,3,4,5,6,7,8,9]
+
+            function resetsort(arr,callback){
+                let newarr = [];
+                for(let i = 0; i < arr.length; i++){
+                    setTimeout(() => {
+                        newarr.push(arr[i]);
+                        if(arr.length == newarr.length){
+                            callback(newarr);
+                        }
+                    }, Math.floor(Math.random() * 1000)); // 打乱执行的时间,如果后面时间比前面时间小,就更早执行,起到乱序的作用
+                }
+            }
+            resetsort(arr,function(newarr){
+                console.log(newarr);
+            });
+                `}
+            ]
+        },
+        {
             name: "indexOf功能实现",
             type: "sf",
             jsCode: [{ lang: 'javascript', code: `
