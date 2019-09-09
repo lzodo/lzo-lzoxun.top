@@ -7,6 +7,7 @@ import page_vue_topic from './pagedata/vue/page_vue_topic';
 import page_vue_util from './pagedata/vue/page_vue_util';
 import page_all_topic from './pagedata/other/page_all_topic';
 import page_js_topic from './pagedata/js/page_js_topic';
+import page_links from './pagedata/other/page_links';
 
 export {
     github_data,
@@ -18,4 +19,5 @@ export {
     page_vue_util,
     page_all_topic,
     page_js_topic,
+    page_links
 }

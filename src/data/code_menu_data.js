@@ -7,6 +7,12 @@ let datas = {
     type: 'Javascript And Vue'
   },
   {
+    name: '资源连接',
+    url: "",
+    link: '/question?pagtag=page_links',
+    type: 'Other'
+  },
+  {
     name: 'js题型',
     url: "",
     link: '/question?pagtag=page_js_topic',

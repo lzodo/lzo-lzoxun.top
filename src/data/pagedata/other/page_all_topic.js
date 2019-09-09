@@ -4,6 +4,9 @@ let datas = {
         {
             name: 'em 与 rem 适配',
             note: '1em 当前元素的fong-size大小 。 因为html默认字体大小时16px,1rem默认为16px, 当html的font-size大小为屏幕宽度时,1rem就等于屏幕宽度',
+            tosumup: [
+                '一套样式,屏幕大小不同,元素大小随着改变 是通过改变html的字体大小实现的'
+            ],
             jsCode: [{
                 lang: 'javascript', code: `
             /*

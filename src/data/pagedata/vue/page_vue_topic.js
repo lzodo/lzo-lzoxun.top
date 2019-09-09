@@ -1,5 +1,35 @@
 let datas = {
     Data: [
+        // {
+        //     name: '钩子函数(生命周期函数)',
+        //     tosumup: [
+                
+        //     ],
+        // },
+        {
+            name: 'axios 拦截器',
+            note: '发送请求 => inteceptor(拦截器) => 处理请求 => 接收响应 => inteceptor ==> 成功或失败回调',
+            jsCode: [{ 
+                lang: 'javascript', code: `
+            // request拦截器 第一个请求拦截
+            axios.interceptors.request.use(config => {
+                if(store.state.token){ // 判断是否存在token，如果存在就给每个请求加上token
+                    config.headers.Authorization = 'token ' + store.state.token;
+                }
+                return config;
+            },err => {
+                return Promise.reject(err)
+            })
+
+            // response 第二个响应拦截
+                axios.interceptors.response.use(response => {
+                    return response;
+                },error => {
+                    ......      
+                })
+                `}
+            ]
+        },
         {
             name: "vue style ?",
             tosumup:[
