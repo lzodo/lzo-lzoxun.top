@@ -26,9 +26,12 @@ let datas = {
         `
             }],
 
-            listLinks: [
-
-            ],
+            listLinks: [{
+                title: '',
+                val: [
+                    { link:'http://www.baidu.com',obj: 'a 如果', note: 'zhe shi a' },
+                ]
+            }, ],
             twoList: [
 
             ],
@@ -64,9 +67,20 @@ let datas = {
         {
             name: "这是狠狠很很很很长的一条目录",
             detailed:[
-               '这是第一个的详细描述',
-               '第二个',
-               '第三个'
+                {
+                    title:'第一条记录',val:[
+                        '是这样子的',
+                        '也是这样子的',
+                        '还是这样子的'
+                    ]
+                },
+                {
+                    title:'第二条记录',val:[
+                        '是这样子的',
+                        '也是这样子的',
+                        '还是这样子的'
+                    ]
+                }
             ]
         },
         {

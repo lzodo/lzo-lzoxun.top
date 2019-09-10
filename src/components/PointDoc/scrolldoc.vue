@@ -33,9 +33,13 @@
                             ({{tsindex+1}})&nbsp;&nbsp;{{tsitem}}
                         </div>
                     </div>
+
                     <div class="detailed" v-show='item.detailed'>
                         <div class='detaileditem' v-for="(deitem,deindex) in item.detailed" :key='deindex'>
-                            ({{deindex+1}})&nbsp;&nbsp;{{deitem}}
+                            ({{deindex+1}})&nbsp;&nbsp;{{deitem.title}}
+                            <div class="detcontent" v-for="(decitem,decindex) in deitem.val" :key="decindex">
+                                 👀 {{decitem}}
+                            </div>
                         </div>
                     </div>
 
@@ -49,6 +53,16 @@
                         <span class='codenote'>{{citem.lang}} Code</span>
                         <code :class="citem.lang">{{citem.code}}</code>
                     </pre>
+                    
+                    <div class="listLinks" v-show='item.listLinks' v-for='(titem,index) in item.listLinks' :key='index'>
+                        <!-- <div class="tabtitle">{{titem.title}}</div> -->
+                        <ul class="tabList">
+                            <li class="tabitem" v-for='(tlist,tindex) in titem.val' :key='tindex'>
+                                <a class="obj" :href="tlist.link">{{tlist.obj}}</a> 
+                                <span class="note">描述 : {{tlist.note}}</span>
+                            </li>
+                        </ul>
+                    </div>
 
                     <div class="seclinks" v-show='item.links'>
                         <div class='linkmodo' v-for='(ilinks,index) in item.links' :key='index'>
@@ -207,7 +221,7 @@ export default {
             border-bottom: 1px solid #ececec;
             letter-spacing: 1px;
         }
-        .tableStyle{
+        .tableStyle,.listLinks{
             width:100%;
             margin: 10px 0;
             padding: 0 30px;
@@ -250,6 +264,9 @@ export default {
                         color:#333;
                         font-weight: 600;
                         padding-left: 10px;
+                    }
+                    a.obj:hover{
+                        color:#007fff;
                     }
                     .note{
                         padding-left: 15px;
@@ -368,6 +385,13 @@ export default {
                border-left-color:#436EEE;
                .detaileditem{
                    margin-bottom: 5px;
+                   .detcontent{
+                       padding-left: 35px;
+                       font-size: 14px;
+                       background: #ddd;
+                       font-weight: bold;
+                       color:#333;
+                   }
                }
             }
             &.detailed:before{

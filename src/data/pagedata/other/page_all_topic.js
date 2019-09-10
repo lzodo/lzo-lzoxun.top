@@ -5,12 +5,12 @@ let datas = {
             name: 'em 与 rem 适配',
             note: '1em 当前元素的fong-size大小 。 因为html默认字体大小时16px,1rem默认为16px, 当html的font-size大小为屏幕宽度时,1rem就等于屏幕宽度',
             tosumup: [
-                '一套样式,屏幕大小不同,元素大小随着改变 是通过改变html的字体大小实现的'
+                '一套样式,屏幕大小不同,元素大小随着改变 是通过改变html的字体大小实现的,因为rem表示的大小是根据这个变化的',
+                '给body重置font-size:16px'
             ],
             jsCode: [{
                 lang: 'javascript', code: `
             /*
-             * 先引入mate
              * 设置
              * 获取屏幕区域宽度(把屏幕分成1份,每份的宽度代表1rem)
              * var width = document.documentElement.clientWidth/1;
@@ -20,18 +20,35 @@ let datas = {
              * html.style.fontSize = width + 'px';
             */
             
-            //使用 网上适配翻案
-            //将屏幕等分成 20 份，每份为 1rem
-            //如果设计稿是640,那么 1rem=640px/20=32px , <html>的 font-size为32px 。
-            //使用cssrem插件进行转换 设置px_to_rem值为32（输入640可以转换为20rem）
+            /*
+             * js 设置
+             * 将屏幕等分成 3.75 份，每份为 1rem
+             * 如果设计稿是375,那么 1rem=375/3.75=100px , <html>的 font-size为100px
+             * 如果设计稿是640,那么 1rem=640px/3.75=170.6666666px , <html>的 font-size为170.666666px 。
+             * 使用cssrem插件进行转换 设置px_to_rem值为100（输入375可以转换为3.75rem）
+             */
             (function () {
                 var html = document.documentElement;
                 function onWindowResize() {
-                    html.style.fontSize = html.getBoundingClientRect().width / 20 + 'px';
+                    html.style.fontSize = html.getBoundingClientRect().width / 3.75 + 'px';
                 }
                 window.addEventListener('resize', onWindowResize);
                 onWindowResize();
             })();
+
+            /*
+             * vw方式实现
+             * vw把屏幕分成100份,屏幕宽度为100vw
+             * iPhone 6/7/8  w = 375 -> 3.75
+             * iPhonw plus   w = 414 -> 4.14
+             * 计算 如果iPhone6下html字体设置基准100px,vw会是多少?  计算出来的vw在其他屏幕上也会相应变化
+             * 375px/100px == 100vh/x (vh)  => x = 10000/375 = 26.6666666666vw
+             *
+             * 如何基准值是
+             */
+            html{font-size:26.6666666666vw};
+            body{font-size:16px};
+            //cssrem设置基准值100 完成转换
             
                 `}
             ]
@@ -131,10 +148,12 @@ let datas = {
                 'display 为 inline-block、table-cells、flex',
                 'overflow 除了 visible 以外的值 (hidden、auto、scroll)'
             ],
-            detailed:[
+            detailed:[{title:'BFC的作用场景',val:[
                 '同一个 BFC 下外边距会发生折叠,所以说margin折叠解决方案可以是触发BFC的条件，将两个元素放在不同的BFC容器中,不同方式都带有每种方式的特性',
                 'BFC元素子元素浮动父级不会塌陷,所以处理塌陷可以清除浮动',
                 'BFC 可以阻止元素被浮动元素覆盖等情况'
+                    ]
+                }
             ],
         },
         {

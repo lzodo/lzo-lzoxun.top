@@ -1,6 +1,76 @@
 let datas = {
     Data: [
         {
+            name:'字符串转驼峰',
+            note:'aaa-bbb-ccc-ddd 格式字符串转驼峰',
+            jsCode:[{lang:'javascript',code:`
+            let str = 'this-is-a-teststr';
+            function tuofeng(str){
+                // 切割 => 循环 => 取第一个转大写 => 加上字符串中第二个开始的字符 => join连接
+                return str.split('-').map((item,index)=>{ 
+                if(index == 0){
+                    return item;
+                }else{
+                    return item.charAt(0).toUpperCase() + item.substr(1,item.length-1)
+                }
+                }).join('')
+            }
+            console.log(tuofeng(str))
+                `}
+            ]
+
+        },
+        {
+            name:'a==1&&a==2&&a==3',
+            tag:['类型转换'],
+            note:'对象与数字比较,对象转字符串会先调用toString方法',
+            tosumup:[
+                '通过新建对象toString方法实现',
+                '通过Object.defineProperty实现'
+            ],
+            jsCode:[{lang:'javascript',code:`
+
+            // 通过私有toString
+            let a = {
+                value:0,
+                toString(){
+                    this.value = this.value + 2;
+                    return this.value
+                },
+             }
+             
+             if(a==2&&a==4&&a==6){
+                console.log('ok')
+             }
+
+             // ===================================================
+             let a = [2,4,6];
+             a.toString = a.shift; //从原始前面删除一个元素,并返回删除的元素
+
+             if(a==2&&a==4&&a==6){
+                console.log('ok')
+             }
+
+             // 通过definePropetry
+             Object.defineProperty(window,"a",{
+                get(){
+                   this.val ? ++this.val : this.val = 1;
+                   return this.val
+                }, // 如果访问obj的a属性触发get
+                set(newval){
+                   console.log('set',newval);
+                   // this.val = newval;
+                }, // 如果设置obj的a属性触发set
+            })
+
+            if(a==1&&a==2&&a==3){
+               console.log('ok')
+            }
+                `}
+            ]
+
+        },
+        {
             name: 'js 数据类型',
             type: 'jc',
             note: '最新的 ECMAScript 标准定义了 8 种数据类型Boolean、Null、Undefined、Number、BigInt、String、Symbol 和 Object,通过typeof 操作数据 返回操作数据的类型(注意typeof null 返回object,函数 返回 function)',
@@ -336,6 +406,16 @@ let datas = {
             resetsort(arr,function(newarr){
                 console.log(newarr);
             });
+            
+            // ========================================
+
+            function resetsort(arr){
+                arr.sort(()=>{
+                    return Math.random() - 0.5
+                })
+                return arr;
+             }
+             console.log(resetsort(arr));
                 `}
             ]
         },

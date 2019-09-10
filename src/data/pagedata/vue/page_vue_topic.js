@@ -7,11 +7,73 @@ let datas = {
         //     ],
         // },
         {
+            name:'vue 生命周期钩子',
+            tosumup:[
+                '组件创建阶段(creating) 包含beforeCreate、created两个钩子函数',
+                '模板渲染阶段(mounting) 包含beforeMount、mounted两个钩子函数',
+                '数据更新阶段(updating) 包含beforeUpdate、updated两个钩子函数',
+                '组件卸载阶段(destroting) 包含beforeDestroy、destroyed两个钩子函数'
+            ],
+            links: [
+                {
+                    title: '相关链接',
+                    val: [
+                        { name: '简书', href: 'https://www.jianshu.com/p/69d447321740' },
+                    ]
+                },
+            ],
+        },
+        {
+            name:'路由 生命周期钩子',
+            note:'全局钩子,局部钩子,组件中的钩子(需要先引入router)',
+            detailed:[
+                {
+                    title:'全局钩子',val:[
+                        'beforeEach ：路由切换开始是调用',
+                        'afterEach : 路由切换结束调用',
+                        '一般在router定义是通过router对象调用:router.beforeEach((to, from, next) => {}'
+                    ]
+                },
+                {
+                    title:'局部钩子',val:[
+                        'biforeEnter : 针对单个路由',
+                        '局部钩子一般在路由中定义(定义路由访问路径那里)'
+                    ]
+                },
+                {
+                    title:'组件中的钩子',val:[
+                        'beforeRouteEnter',
+                        'beforeRouteUpdate',
+                        'beforeRouteLeave',
+                    ]
+                }
+            ],
+            jsCode:[{lang:'javascript',code:`
+            beforeRouteEnter (to, from, next) {
+            // 在渲染该组件的对应路由被 confirm 前调用
+            // 不！能！获取组件实例 this
+            // 因为当钩子执行前，组件实例还没被创建
+            },
+            beforeRouteUpdate (to, from, next) {
+            // 在当前路由改变，但是该组件被复用时调用
+            // 举例来说，对于一个带有动态参数的路径 /foo/:id，在 /foo/1 和 /foo/2 之间跳转的时候，
+            // 由于会渲染同样的 Foo 组件，因此组件实例会被复用。而这个钩子就会在这个情况下被调用。
+            // 可以访问组件实例 this
+            },
+            beforeRouteLeave (to, from, next) {
+            // 导航离开该组件的对应路由时调用
+            // 可以访问组件实例 this
+            }
+                `}
+            ]
+
+        },
+        {
             name: 'axios 拦截器',
             note: '发送请求 => inteceptor(拦截器) => 处理请求 => 接收响应 => inteceptor ==> 成功或失败回调',
             jsCode: [{ 
                 lang: 'javascript', code: `
-            // request拦截器 第一个请求拦截
+            // request拦截器 第一个请求拦截(axios每调一个接口都会先经过这里,添加token,设置代理地址什么的)
             axios.interceptors.request.use(config => {
                 if(store.state.token){ // 判断是否存在token，如果存在就给每个请求加上token
                     config.headers.Authorization = 'token ' + store.state.token;
@@ -22,11 +84,11 @@ let datas = {
             })
 
             // response 第二个响应拦截
-                axios.interceptors.response.use(response => {
-                    return response;
-                },error => {
-                    ......      
-                })
+            axios.interceptors.response.use(response => {  // 登入拦截:如果得到一个状态代表没有登入就直接跳转登录界面
+                return response;
+            },error => {
+                return Promise.reject(error);
+            })
                 `}
             ]
         },
@@ -64,7 +126,7 @@ let datas = {
                 '一般频繁切换适合使用v-show,否则适合用v-if'
             ], 
             detailed:[
-                'v-if 才是真正的条件渲染，可配合v-else,v-else-if 使用，只有当条件为true是才开始创建元素。v-show控制的元素一开始就存在页面上的，条件只是控制css显示隐藏元素的动作'
+                {title:'v-if 才是真正的条件渲染，可配合v-else,v-else-if 使用，只有当条件为true是才开始创建元素。v-show控制的元素一开始就存在页面上的，条件只是控制css显示隐藏元素的动作'}
             ]
 
         },
