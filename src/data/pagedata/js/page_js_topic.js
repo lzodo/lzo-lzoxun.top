@@ -1,6 +1,103 @@
 let datas = {
     Data: [
         {
+            name:'js 兼容问题',
+            tag:'兼容性',
+            jsCode:[{lang:'javascript',code:`
+            //标准 与 IE
+            //事件冒泡
+            stopPropagation 与 cancelBubble
+
+            function stopPropagation(e){
+                e=window.event||e;
+                if(document.all){  //只有ie识别
+                    e.cancelBubble=true;
+                }else{
+                    e.stopPropagation();
+                }
+            }
+
+            //函数监听 
+            addEventListener、removeEventListener 与   attachEvent 、detachEvent
+
+            //事件对象   
+            e 与 window.event 
+
+            //获取事件的源对象
+            e.target 与 e.srcElement
+            
+            //获取可视区宽度(？？)
+            document.documentElement.clientwidth和document.body.clientWidth
+                `}
+            ],
+            links: [
+                {
+                    title: '相关链接',
+                    val: [
+                        { name: '浏览器兼容', href: 'https://juejin.im/post/59a3f2fe6fb9a0249471cbb4#heading-21' },
+                        { name: '兼容问题2', href:'https://www.cnblogs.com/zhoudawei/p/7497544.html'},
+                        { name: '兼容问题3', href:'https://www.jianshu.com/p/f971aae86f4d'}
+                    ]
+                },
+            ],
+        },
+        {
+            name:'dom事件流',
+            tosumup:[
+                'IE提出事件冒泡:目标元素 => body => html => document',
+                '网景提出事件捕获:document => html => body => 目标元素',
+                'DOM2 target.addEventListener(type, fn, boolean); 第三个参数设置false冒泡,true捕获 默认false',
+                'IE9之前使用attachEvent(on + type,fn);直接用自己的冒泡了,所以没有第三个参数'
+            ],
+            warning:[
+                '这说明 DOM0级(直接在标签上或直接给元素onclick那种)添加事件。后面的事件会覆盖前面的事件，而 DOM2级则不会，多个事件都会执行；'
+            ],
+            jsCode:[{lang:'javascript',code:`
+            function addEvent(node, type, handler) {
+                if(!node) return false;
+                if(node.addEventListener) {
+                    node.addEventListener(type, handler, false);
+                    return true;
+                }
+                else if(node.attachEvent) {
+                    node['e' + type + handler] = handler;
+                    node[type + handler] = function() {
+                        node['e' + type + handler](window.event);
+                    };
+                    node.attachEvent('on' + type, node[type + handler]);
+                    return true;
+                }
+                return false;
+             }
+             
+             function removeEvent(node, type, handler) {
+                if(!node) return false;
+                if(node.removeEventListener) {
+                    node.removeEventListener(type, handler, false);
+                    return true;
+                }
+                else if(node.detachEvent) {
+                    node.detachEvent('on' + type, node[type + handler]);
+                    node.[type + handler] = null;
+                }
+                return false;
+             }
+             
+             e.stopPropagation(); e.cancelBubble=true;(ie) //阻止事件冒泡
+             e.preventDefault(); //阻止默认事件
+                `}
+            ],
+            links: [
+                {
+                    title: '相关链接',
+                    val: [
+                        { name: 'dom 事件流', href: 'https://juejin.im/post/5a731204f265da4e8a31b9f6' },
+                        { name: '事件流2', href:'https://www.jianshu.com/p/f62e94479fbc'}
+                    ]
+                },
+            ],
+        },
+        {
             name:'字符串转驼峰',
             note:'aaa-bbb-ccc-ddd 格式字符串转驼峰',
             jsCode:[{lang:'javascript',code:`
@@ -418,6 +515,38 @@ let datas = {
              console.log(resetsort(arr));
                 `}
             ]
+        },
+        {
+            name:'数组push实现',
+            tag:['算法','原生原理'],
+            jsCode:[{lang:'javascript',code:`
+            Array.prototype.pusha = function(val){
+                //因为最后一个索引是this.length - 1;在加一个就是length了
+                this[this.length] = val;
+                //由于数组特性,执行完之后this.length会在原来的基础上自动加1
+                return this.length; 
+            }
+            
+            let arr2 = [8];
+            console.log(arr2.pusha(3)); //与原生push一样
+            console.log(arr2); //结果也与原生一样
+            
+            // 计算以下结果
+            let obj = {
+                2:3,
+                3:4,
+                length:2,
+                push:Array.prototype.push
+            
+            };
+            
+            obj.push(1);
+            // 因为this[this.length] = val; => obj.length = 1 => obj.2 = 1 => this.length自增1
+            obj.push(2);
+            // 因为this[this.length] = val; => obj.length = 2 => obj.3 = 2 => this.length自增1
+            console.log(obj) //?
+                `}
+            ],
         },
         {
             name: "indexOf功能实现",

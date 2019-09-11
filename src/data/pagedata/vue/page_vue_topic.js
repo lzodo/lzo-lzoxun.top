@@ -19,6 +19,7 @@ let datas = {
                     title: '相关链接',
                     val: [
                         { name: '简书', href: 'https://www.jianshu.com/p/69d447321740' },
+                        {name:'钩子执行顺序',href:'https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/128'},
                     ]
                 },
             ],
