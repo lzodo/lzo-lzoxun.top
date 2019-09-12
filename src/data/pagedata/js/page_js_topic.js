@@ -736,6 +736,16 @@ let datas = {
                 ` }]
         },
         {
+            name:'数组最大最小值',
+            tag:['数组','算法'],
+            tosumup:[
+                '排序法:排序后取第一个或最后一个值',
+                'Math.max.apply(Math, array)  => 必须全是数值,apply作用是让参数展开',
+                'Math.max(...array)  => 必须全是数值,...array作用是让参数展开',
+                '假设法:假设第一个最大,从数组第一项开始循环后面每一项,如何有比这个更大的就让最大值等于该项'
+            ],
+        },
+        {
             name: "bind方法",
             type: "jc",
             jsCode: [{ lang: 'javascript', code: `
