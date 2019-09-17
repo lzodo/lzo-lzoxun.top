@@ -57,9 +57,9 @@
                     <div class="listLinks" v-show='item.listLinks' v-for='(titem,index) in item.listLinks' :key='index'>
                         <!-- <div class="tabtitle">{{titem.title}}</div> -->
                         <ul class="tabList">
-                            <li class="tabitem" v-for='(tlist,tindex) in titem.val' :key='tindex'>
+                            <li class="tabitem" :class='[titem.type]' v-for='(tlist,tindex) in titem.val' :key='tindex'>
                                 <a class="obj" :href="tlist.link">{{tlist.obj}}</a> 
-                                <span class="note">描述 : {{tlist.note}}</span>
+                                <span class="note" v-show='titem.type == "line"'>描述 : {{tlist.note}}</span>
                             </li>
                         </ul>
                     </div>
@@ -237,11 +237,19 @@ export default {
                 width:100%;
                 // border: 1px solid #F8FAFC;
                 // border-bottom: none;
+                overflow: hidden;
                 .tabitem{
                     height: 40px;
                     line-height: 40px;
                     font-size: 15px;
                     display: flex;
+                    &.block{
+                        display: block;
+                        float: left;
+                        .obj{
+                            border:none;
+                        }
+                    }
                     &:hover{
                         background: #ECF5FF;
                         .obj{
