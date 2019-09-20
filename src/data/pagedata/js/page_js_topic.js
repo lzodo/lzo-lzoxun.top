@@ -2,12 +2,13 @@ let datas = {
     Data: [
         {
             name:'parseInt(string, radix)',
-            tag:['函数'],
-            node:'方法将字符转十进制数值,string 需要转换的字符, radix基数指定string是几进制,如parseInt(4f,16),16代表前面字符串是十六进制数'
+            type:'fn',
+            tag:['函数','测试','基础'],
+            note:'方法将字符转十进制数值,string 需要转换的字符, radix基数指定string是几进制,如parseInt(4f,16),16代表前面字符串是十六进制数,方法将字符转十进制数值,string 需要转换的字符, radix基数指定string是几进制,如parseInt(4f,16),16代表前面字符串是十六进制数'
         },
         {
             name:'js 兼容问题',
-            tag:'兼容性',
+            tag:['兼容性'],
             jsCode:[{lang:'javascript',code:`
             //标准 与 IE
             //事件冒泡

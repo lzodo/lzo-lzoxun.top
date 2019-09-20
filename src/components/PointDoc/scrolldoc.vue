@@ -1,9 +1,15 @@
 <template>
     <div class="PointDoc" :style="{height:docHeight+'px'}">
         <div class="container">
-            <div class="wrapper">
+            <div class="wrapper">              
                 <div class="section" v-for="(item, index) in list" :key="index">
-                    <h2 class="sectitle">{{(index+1) + '、' + item.name}}</h2>
+                    <div class="itlte-warp">
+                        <h2 class="sectitle">{{(index+1) + '、' + item.name}}</h2>
+                        <div class="tags" v-show="item.tag">
+                            <span v-for="(tagitem,tagindex) in item.tag" :key="tagindex" :style='{background:randomColor()}'>{{tagitem}}</span>
+                        </div>
+                        <!-- <div class="types" v-show="item.type">{{item.type}}</div> -->
+                    </div>
                     <div class="bannerimg" v-show='item.img'>
                         <img :src='item.img' />
                     </div>
@@ -120,7 +126,6 @@ export default {
      methods: {
         dataScroll: function () {
             this.scroll = document.documentElement.scrollTop || document.body.scrollTop;
-            console.log(this.scroll)
         },
         jump(index) {
             let jump = document.getElementsByClassName('section');
@@ -133,10 +138,14 @@ export default {
             // Safari
             window.pageYOffset = total;
         },
+        randomColor(){
+            console.log('random')
+           let colors = ['#E6A23C','#67C23A','#F56C6C','#909399','#409EFF'];
+           return colors[Math.floor(Math.random()*5)];
+        },
         loadSroll: function () {
             var self = this;
             var $navs = $(".scroitem");
-            console.log($navs);
             var sections = document.getElementsByClassName('section');
             console.log(sections);
             for (let i = sections.length - 1; i >= 0; i--) {
@@ -212,6 +221,49 @@ export default {
         padding:10px;
         margin-bottom: 2px;
         min-height: 200px;
+        .itlte-warp{
+            position: relative;
+            width: 100%;
+            height: 100%;
+            .tags{
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                span{
+                    float: right;
+                    padding:0 7px;
+                    background: #ff6666;
+                    margin-left: 2px;
+                    color:#fff;
+                    &:hover{
+                        box-shadow:inset 0px 6px 7px rgba(0,0,0,.1);
+                    }
+                    &:first-child{
+                        border-top-right-radius:4px;
+                        border-bottom-right-radius:4px;
+                    }
+                    &:last-child{
+                        border-top-left-radius:4px;
+                        border-bottom-left-radius:4px;
+      
+                    }
+                    &:not(:first-child):before{
+                        content: " ";
+                    }
+                }
+            }
+            .types{
+                position: absolute;
+                top: 39px;
+                right: 0px;
+                background: #3CB371;
+                padding: 0 7px;
+                border-radius:0 0 5px 5px;
+                font-size: 10px;
+                z-index: 2;
+                color:#fff;
+            }
+        }
         .sectitle{
             width:100%;
             font-size: 20px;
