@@ -1,6 +1,62 @@
 let datas = {
     Data: [
         {
+            name:'js 对象转基本类型',
+            tag:['类型转换'],
+            tosumup:[
+                '如果转换与数值有关',
+                '对象转基本类型,如果有重置[Symbol.toPrimitive],和valueOf与toString会先调用[Symbol.toPrimitive],如果[Symbol.toPrimitive]返回的不是原始值会再继续调用valueOf,如果还不是原始值就会调用toString,如果还不是原始值就会报错',
+                '如果没有[Symbol.toPrimitive]并且有valueOf和toString方法，先调用valueOf,如果valueOf返回的不是原始值会再继续调用toString,如果还不是原始值就会报错',
+                '如果没有valueOf并且有toString方法会调用toString方法,如果返回值不是原始值也会报错',
+                '得到这两个方法的返回值进行类型转换',
+                '如果转换与字符串更相关toString优先级打印valueOf,但[Symbol.toPrimitive]还是最高德',
+            ],
+            jsCode:[{lang:'javascript',code:`
+            var obj = {
+                toString () {
+                    console.log('toString')
+                    return 
+                },
+                valueOf () {
+                    console.log('valueOf')
+                    return {}
+                },
+                // [Symbol.toPrimitive] () {
+                //     console.log('primitive')
+                //     return 'primi'
+                // }
+            }
+            console.log(String(obj)) //先toString
+            console.log(Number(obj)) //先valueOf
+            //console.log('1' + obj) //数值运算先valueOf
+            `}]
+
+        },
+        {
+            name:'[] == ![]?',
+            tag:['类型转换'],
+            tosumup:[
+                '[]转换为数字为0',
+                '![] 首先是转换为布尔值，由于[]作为一个引用类型转换为布尔值为true,',
+                '![]为false，进而在转换成数字，变为0',
+                '0 == 0'
+            ],
+
+        },
+        {
+            name:'Object.is(a,b) 与 a === b 的差别?',
+            tag:['方法'],
+            note:'判断更为准确一些,如+0和-0，NaN和NaN',
+            jsCode:[{lang:'javascript',code:`
+                console.log(Object.is(-0,+0)) //false
+                console.log(-0 === +0) //true
+                
+                console.log(Object.is(NaN,NaN)) //true
+                console.log(NaN === NaN) //false
+            `}]
+
+        },
+        {
             name:'parseInt(string, radix)',
             type:'fn',
             tag:['函数','测试','基础'],
