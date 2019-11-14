@@ -1,6 +1,21 @@
 let datas = {
     Data: [
         {
+            name:'对象深浅克隆?',
+            tosumup:[
+                '浅克隆:复制对象第一层属性,如果第一层中某个属性的值还是一个对象,这边复制的还是属于引用地址,新对象会影响老对象',
+                '深克隆:完全克隆老对象,与克隆出的对象互不影响 https://juejin.im/post/5abb55ee6fb9a028e33b7e0a'
+            ],
+        },
+        {
+            name:'webpack 中 loader 和 plugin 的区别是什么?',
+            tag:['webpack'],
+            tosumup:[
+                'loader，它是一个转换器，将A文件进行编译成B文件，比如：将A.less转换为A.css，单纯的文件转换过程。',
+                'plugin是一个扩展器，它丰富了webpack本身，针对是loader结束后，webpack打包的整个过程，它并不直接操作文件，而是基于事件机制工作，会监听webpack打包过程中的某些节点，执行广泛的任务'
+            ],
+        },
+        {
             name:'js 对象转基本类型',
             tag:['类型转换'],
             tosumup:[
@@ -536,7 +551,7 @@ let datas = {
                 ` }]
         },
         {
-            name: "函数自执行 前缀特殊符号的意义？",
+            name: "立即执行函数表达式(IIFE) 前缀特殊符号的意义？",
             type: "jc",
             note: "应为定义函数是不能直接执行的,而函数表达式可以,如果在前面加入符号，解析器就会以函数表达式的方式调用定义的函数",
             jsCode: [{ lang: 'javascript', code: `

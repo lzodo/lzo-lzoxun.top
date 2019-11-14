@@ -1,8 +1,9 @@
 <template>
     <div class="PointDoc" :style="{height:docHeight+'px'}">
+        <el-input v-model='filterListData' @input='filterList' size='mini' class='filterList' placeholder="请输入搜索关键字"/>     
         <div class="container">
-            <div class="wrapper">              
-                <div class="section" v-for="(item, index) in list" :key="index">
+            <div class="wrapper">    
+                <div class="section" v-for="(item, index) in newList" :key="index">
                     <div class="itlte-warp">
                         <h2 class="sectitle">{{(index+1) + '、' + item.name}}</h2>
                         <div class="tags" v-show="item.tag">
@@ -113,7 +114,10 @@ export default {
         return {
             scroll: '',
             navList: [],
-            scrollnavtop:10
+            scrollnavtop:10,
+
+            filterListData:'',
+            newList:[],
         }
     },
     filters:{
@@ -124,6 +128,12 @@ export default {
         }
     },
      methods: {
+        filterList(){
+            this.newList = this.list.filter((item)=>{
+          
+                return item.name.toLowerCase().includes(this.filterListData.toLowerCase())
+            })
+        },
         dataScroll: function () {
             this.scroll = document.documentElement.scrollTop || document.body.scrollTop;
         },
@@ -164,7 +174,7 @@ export default {
         getcatal(){
             let that = this;
             that.navList = [];
-            that.list.map(function(item,index){
+            that.newList.map(function(item,index){
                 that.navList.push((index+1) + '、' +item.name);
             })
         }
@@ -174,11 +184,16 @@ export default {
             this.loadSroll()
         },
         list:function(){
+            this.filterList(); 
+        },
+        newList:function(){
             this.getcatal(); 
         },
     },
     mounted() {
         let that = this;
+        that.newList = that.list;
+        console.log('dd')
         window.addEventListener('scroll', this.dataScroll);
         this.getcatal();
     }
@@ -551,5 +566,9 @@ pre{
         color:#777;
         padding: 0 0 5px 5px;
     }
+}
+.filterList{
+    margin: 10px;
+    width: 200px;
 }
 </style>
