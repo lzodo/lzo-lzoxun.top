@@ -1,5 +1,10 @@
 let datas = {
     Data: [
+		{
+			name:'点击劫持 and SQL注入',
+			tag:['web安全'],
+			note:'点击劫持:在页面上用户需要点击操作,点击劫持就是通过类似iframe的方式插入其他页面,再将iframe透明度设置为0,当用户点击页面的时候,其实是点到了隐藏的iframe'
+		},
         {
             name:'XSS',
             tag:['web安全'],
@@ -23,7 +28,7 @@ let datas = {
                         }[tag] || tag)
                     );
 
-                    escapeHTML('<a href="#">Me & you</a>'); 
+                    escapeHTML('<a href="#">Me & you</a>');
                 `
             }],
         },
@@ -96,7 +101,7 @@ let datas = {
             var obj = {
                 toString () {
                     console.log('toString')
-                    return 
+                    return
                 },
                 valueOf () {
                     console.log('valueOf')
@@ -131,7 +136,7 @@ let datas = {
             jsCode:[{lang:'javascript',code:`
                 console.log(Object.is(-0,+0)) //false
                 console.log(-0 === +0) //true
-                
+
                 console.log(Object.is(NaN,NaN)) //true
                 console.log(NaN === NaN) //false
             `}]
@@ -160,15 +165,15 @@ let datas = {
                 }
             }
 
-            //函数监听 
+            //函数监听
             addEventListener、removeEventListener 与   attachEvent 、detachEvent
 
-            //事件对象   
-            e 与 window.event 
+            //事件对象
+            e 与 window.event
 
             //获取事件的源对象
             e.target 与 e.srcElement
-            
+
             //获取可视区宽度(？？)
             document.documentElement.clientwidth和document.body.clientWidth
                 `}
@@ -212,7 +217,7 @@ let datas = {
                 }
                 return false;
              }
-             
+
              function removeEvent(node, type, handler) {
                 if(!node) return false;
                 if(node.removeEventListener) {
@@ -225,7 +230,7 @@ let datas = {
                 }
                 return false;
              }
-             
+
              e.stopPropagation(); e.cancelBubble=true;(ie) //阻止事件冒泡
              e.preventDefault(); //阻止默认事件
                 `}
@@ -247,7 +252,7 @@ let datas = {
             let str = 'this-is-a-teststr';
             function tuofeng(str){
                 // 切割 => 循环 => 取第一个转大写 => 加上字符串中第二个开始的字符 => join连接
-                return str.split('-').map((item,index)=>{ 
+                return str.split('-').map((item,index)=>{
                 if(index == 0){
                     return item;
                 }else{
@@ -278,7 +283,7 @@ let datas = {
                     return this.value
                 },
              }
-             
+
              if(a==2&&a==4&&a==6){
                 console.log('ok')
              }
@@ -346,19 +351,19 @@ let datas = {
              * 都是从字符串中提取新的字符,
              * str.slice(start, end) 提取一个字符串(开始索引,结束索引)
              * str.substring(start, end) 提取一个字符串,end不支持负数(开始索引,结束索引)
-             * 
+             *
              * str.substr(start, len) 提取一个长度为len的字符串(开始索引,截取长度)
              * substr 是可以负的
-             * 
+             *
              * slice和substring
              *    slice的参数可以是负数(从后面开始数)，而substring如果有负值会当作0解析
              *    slice第一个参数不能比第二个小,substrin可以,放回两个下标之间的字符串
-             * 
+             *
              */
 
              let str = 'this is a test';
              str.substring(1,1) // ""  slice 一样
-             
+
              str.substring(0,-1) // ""
              str.slice(0,-1) // this is a tes
 
@@ -382,7 +387,7 @@ let datas = {
              * 每次触发事件时都取消之前的延时调用方法
              *
              */
-            
+
             function debounce(fn) {
                 let timeout = null; // 创建一个标记用来存放定时器的返回值
                 return function() {
@@ -430,7 +435,7 @@ let datas = {
                 `}
             ]
         },
-        {  
+        {
             name:'class 封装 拖拽',
             type:'al',
             jsCode:[{lang:'html',code:`
@@ -489,7 +494,7 @@ let datas = {
                     this.currentX = event.clientX;
                     this.currentY = event.clientY;
 
-                    //计算xy改变的距离 + 鼠标按下时对象左上的距离 
+                    //计算xy改变的距离 + 鼠标按下时对象左上的距离
                     var left = this.currentX - this.startX;
                     var top = this.currentY - this.startY;
 
@@ -552,7 +557,7 @@ let datas = {
             name:'js 内存管理',
             type:'jc',
             note:'JavaScript是在创建变量（对象，字符串等）时自动进行了分配内存，并且在不使用它们时“自动”释放。 释放的过程称为垃圾回收。 内存生命周期一般都是 分配 执行(读写) 释放三个步骤的',
-            
+
         },
         {
             name:'js 严格模式',
@@ -602,10 +607,10 @@ let datas = {
             type: "jc",
             jsCode: [{ lang: 'javascript', code: `
         /*
-        * (1) 箭头函数比普通函数更加简洁  x=>x+10 
+        * (1) 箭头函数比普通函数更加简洁  x=>x+10
         * (2) 箭头函数没有自己的this,他的this是继承函数所属上下文的this,使用call,apply等方式是无法改变箭头函数中this指向的
         * (3) 箭头函数中没有argument(类数组)，只能基于...arg获取传递的参数集合(数组)
-        * (4) 箭头函数不能被new执行,因为他没有自己的this也没有prototype属性 
+        * (4) 箭头函数不能被new执行,因为他没有自己的this也没有prototype属性
         */
         let obj = {};
         let fn = (...arg)=>{
@@ -646,7 +651,7 @@ let datas = {
             resetsort(arr,function(newarr){
                 console.log(newarr);
             });
-            
+
             // ========================================
 
             function resetsort(arr){
@@ -667,22 +672,22 @@ let datas = {
                 //因为最后一个索引是this.length - 1;在加一个就是length了
                 this[this.length] = val;
                 //由于数组特性,执行完之后this.length会在原来的基础上自动加1
-                return this.length; 
+                return this.length;
             }
-            
+
             let arr2 = [8];
             console.log(arr2.pusha(3)); //与原生push一样
             console.log(arr2); //结果也与原生一样
-            
+
             // 计算以下结果
             let obj = {
                 2:3,
                 3:4,
                 length:2,
                 push:Array.prototype.push
-            
+
             };
-            
+
             obj.push(1);
             // 因为this[this.length] = val; => obj.length = 1 => obj.2 = 1 => this.length自增1
             obj.push(2);
@@ -715,7 +720,7 @@ let datas = {
             function myIndexOfReg(T) {
                 let reg = new RegExp(T),
                     res = reg.exec(this);
-                console.log(reg); //得到转换的结果直接是 /cd/ 
+                console.log(reg); //得到转换的结果直接是 /cd/
                 return res === null ? -1 : res.index; //如何匹配不到取-1，否则取索引
             }
             String.prototype.myIndexOf = myIndexOf;
@@ -733,7 +738,7 @@ let datas = {
             type: "sf",
             jsCode: [{ lang: 'javascript', code: `
         /* 一.sort排序规则,return大于0则交换数组相邻2个元素的位置
-         *    
+         *
          *
          * 二.arr.sort(function (a,b) {})中
          *    a -->代表每一次执行匿名函时候，找到的数组中的当前项；
@@ -747,9 +752,9 @@ let datas = {
         console.log(arr.sort()); //[-12, -50, 0, 1, 15, 7] 首字母7最大
 
         /*
-         * 1.升序 
+         * 1.升序
          *    (1) 大的放在后面,小的放在前面
-         *    (2) 因为是升序,所以如果前一个比后一个大就要交换位置  
+         *    (2) 因为是升序,所以如果前一个比后一个大就要交换位置
          *    (3) 交换位置的条件是返回值要大于0, 所以返回值前一个 - 后一个要大于0, 否则不交换,反之降序
         */
         console.log(arr.sort(function(a, b) {
@@ -788,12 +793,12 @@ let datas = {
             type: "sf",
             jsCode: [{ lang: 'javascript', code: `
         let str = 'aBcDeF'; //得到如何转化为AbCdEf
-        str = str.replace(/[a-zA-Z]/g, res => { //匹配到字符串中的所欲字母,再进行操作(回调中会循环每一个匹配到的字符) 
+        str = str.replace(/[a-zA-Z]/g, res => { //匹配到字符串中的所欲字母,再进行操作(回调中会循环每一个匹配到的字符)
             /*
              * res 每一次正则匹配到的结果
              * 实现方案:
              *    (1) 逐一将每个字符转为大写，如果与res全等则调用，说明本来就是大写,就可以调用 toLowerCase() 原生转小写方法,
-             *        否则否则调用 toUpperCase() 转大写方法 
+             *        否则否则调用 toUpperCase() 转大写方法
              *    (2) 或通过ASCLL字符码 res.charCodeAt()>=65 && res.charCodeAt()<=90 说明是大写字母, 否则就是小写字母
              */
              return res.toUpperCase() === res ? res.toLowerCase() : res.toUpperCase();
@@ -846,13 +851,13 @@ let datas = {
                     return function(){
                         console.log(n);
                     }
-                })(i)  
+                })(i)
                 /*
                  * 如果不立即执行,那么数组arr[i]只是存了一个函数定义,没有执行就不会取i,等执行的时候去取i已经是最后一个了
                  * 每次匿名函数表达式执行时, 都会保存一个不同的n ，return语句中的匿名函数每次也引用着不同的n。
                 */
              }
-             console.log(arr[0]())  
+             console.log(arr[0]())
              console.log(arr[1]())
              console.log(arr[2]())
              console.log(arr[3]())
@@ -868,14 +873,14 @@ let datas = {
              }
 
              var a = fun(0);  // ?
-             a.fun2(1);        // ?        
+             a.fun2(1);        // ?
              a.fun2(2);        // ?
              a.fun2(3).fun2(4);        // ?
 
              var b = fun(0).fun2(1).fun2(2).fun2(3);  // ?
              var c = fun(0).fun2(1);  // ?
              c.fun2(2);        // ?
-             c.fun2(3); 
+             c.fun2(3);
                 ` }]
         },
         {
@@ -915,7 +920,7 @@ let datas = {
              * 共同点都是改变函数内this指向
              * 区别在于call可以传this作用域外多个参数
              *        apply只可以传this作用域外一个参数，如果有多个参数一般用一个数组代替
-             * 
+             *
              * fn.call(obj,a1,a2,a3)
              * fn.apply(obj,[a1,a2,a3])
              * 听说call在性能好那么一点点,没有实测
@@ -924,7 +929,7 @@ let datas = {
             obj = {};
             function fn(x,y,z){
                console.log(this)
-               console.log(x,y,z);  
+               console.log(x,y,z);
             }
             fn.apply(obj,arr);  //10 20 30   这是fn里的this是指向obj的，本来是指向window的
             fn.call(obj,arr);  //[10,20,30] undefined undefined
@@ -943,7 +948,7 @@ let datas = {
             jsCode: [{ lang: 'javascript', code: `
             function test(a){
                 console.log(test.caller) //返回的是，test函数在哪个函数中调用的。 如果函数是顶层调用，则返回null
-                console.log(arguments) //形参列表函数自身引用等 
+                console.log(arguments) //形参列表函数自身引用等
                 console.log(arguments.callee) //函数自身引用 递归经常使用
                 test2();
             }
