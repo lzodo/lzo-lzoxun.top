@@ -54,7 +54,7 @@
           <div class="sm">地区 : 福建-福州</div>
           <div class="sm">Email : 869664233@qq.com</div>
           <ul class="card_ico clearfix">
-            <li> 
+            <li>
                 <div class="ico_pop">
                   <div class="wx_pop"><img src="/static/images/qqcode.jpg"></div>
                 </div>
@@ -181,7 +181,7 @@ export default {
         ydValue:'',
         res:{
           translation:[]
-        }  
+        }
       },
     }
   },
@@ -216,7 +216,7 @@ export default {
             console.log(_this.form.time)
             _this.Hv_Datas_play.unshift(_this.form);
             localStorage.setItem('LocalStoAtc', JSON.stringify(_this.Hv_Datas_play))
-           
+
             _this.isShowAtc = false;
             _this.resetAtc(rulesForm);
           } else {
@@ -292,7 +292,7 @@ export default {
     if(LocalStoAtc){
        this.Hv_Datas_play = LocalStoAtc;
        this.Hv_Datas_play_save = LocalStoAtc;
-    }else{  
+    }else{
        this.Hv_Datas_play = this.$store.state.ArticData;
        this.Hv_Datas_play_save = this.$store.state.ArticData;
     }
